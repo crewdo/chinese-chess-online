@@ -1,0 +1,38 @@
+{
+  "name": "co_tuong_online",
+  "version": "1.0.0",
+  "description": "Chinese Chess Online",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel app.js --out-dir build",
+    "start": "node app",
+    "dev-start": "babel-watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crewdo/co_tuong_online.git"
+  },
+  "keywords": [
+    "Chinese Chess",
+    "Co Tuong Online",
+    "Nodejs"
+  ],
+  "author": "Crew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crewdo/co_tuong_online/issues"
+  },
+  "homepage": "https://github.com/crewdo/co_tuong_online/#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^7.0.0",
+    "nodemon": "^2.0.1"
+  }
+}
