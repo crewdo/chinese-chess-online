@@ -4,7 +4,7 @@ class BaseChessMan {
 
     constructor({color, initPos}) {
         this.color = color;
-
+        this.code = -1;
         //position as {x , y}
         this.position = initPos;
         this.name = this.getName();
@@ -15,6 +15,8 @@ class BaseChessMan {
         // if(this.getAvailablePositionsToMove(chessMen).some((value) => value === newPos)){
         //     this.position = newPos;
         // }
+
+        return true;
     }
 
     getName() {

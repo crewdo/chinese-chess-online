@@ -2,6 +2,9 @@ import Cannon from '../Chess/Cannon';
 import King from '../Chess/King';
 import Pawn from '../Chess/Pawn';
 import Advisor from '../Chess/Advisor';
+import Chariot from '../Chess/Chariot';
+import Elephant from '../Chess/Elephant';
+import Horse from '../Chess/Horse';
 
 class ChessGenerator {
 
@@ -12,7 +15,11 @@ class ChessGenerator {
 
     generate()
     {
-        return this.generatePawns() + this.generateCannons() + this.generateKings() + this.generateAdvisors();
+        return this.generatePawns() + this.generateCannons()
+             + this.generateKings() + this.generateAdvisors()
+             + this.generateChariots() + this.generateElephants()
+             + this.generateHorses();
+
     }
 
     generatePawns() {
@@ -31,6 +38,39 @@ class ChessGenerator {
 
         for (let i = 0; i < propertiesArray.length; i++) {
             rs.push(new Cannon(propertiesArray[i]))
+        }
+
+        return rs;
+    }
+
+    generateHorses() {
+
+        let propertiesArray = Horse.getInitializePosition()
+
+        for (let i = 0; i < propertiesArray.length; i++) {
+            rs.push(new Horse(propertiesArray[i]))
+        }
+
+        return rs;
+    }
+
+    generateElephants() {
+
+        let propertiesArray = Elephant.getInitializePosition()
+
+        for (let i = 0; i < propertiesArray.length; i++) {
+            rs.push(new Elephant(propertiesArray[i]))
+        }
+
+        return rs;
+    }
+
+    generateChariots() {
+
+        let propertiesArray = Chariot.getInitializePosition();
+
+        for (let i = 0; i < propertiesArray.length; i++) {
+            rs.push(new Chariot(propertiesArray[i]))
         }
 
         return rs;
