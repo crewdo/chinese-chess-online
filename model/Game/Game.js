@@ -1,3 +1,5 @@
+import Cannon from '../Chess/Cannon';
+import ChessGenerator from '../Board/ChessGenerator';
 class Game {
     constructor({players}) {
         //State: 0 - Not Ready, 1 - Playing
@@ -6,11 +8,21 @@ class Game {
         this.players = players
         this.visitors = [];
         this.turn = null;
+        this.chessMen = [];
+
+        this.initialize();
+    }
+
+    gameReset() {
+        this.state = 0;
     }
 
     initialize() {
 
+        this.gameReset();
+        this.chessMen = ChessGenerator.generate();
     }
+
 
     start() {
 

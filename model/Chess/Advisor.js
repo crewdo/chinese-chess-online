@@ -1,13 +1,17 @@
 import BaseChessMan from './BaseChessMan';
 
-class Advisor extends BaseChessMan{
+class Advisor extends BaseChessMan {
 
     constructor() {
         super();
+        this.type = 'A';
+        this.defaultPositions = [{x: 3, y: 0}, {x: 5, y: 0}, {x: 3, y: 9}, {x: 5, y: 9}];
+
     }
 
-    move({x, y}){
-
+    getAvailablePositionsToMove() {
+        return [];
+        //now get all chessMen, can evaluate which position can move on
     }
 }
 

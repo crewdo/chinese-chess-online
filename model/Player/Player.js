@@ -1,6 +1,6 @@
 class Player {
-    constructor({id, chessMen, name = 'UnknownPlayer'}) {
-        this.chessMen = chessMen;
+    constructor({id, colorHolder, name = 'UnknownPlayer'}) {
+        this.colorHolder = colorHolder;
         this.id = id;
         this.name = name;
     }

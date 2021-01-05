@@ -1,14 +1,16 @@
 import BaseChessMan from './BaseChessMan';
 
-class Pawn extends BaseChessMan{
+class Pawn extends BaseChessMan {
 
     constructor() {
         super();
+        this.type = 'P';
+        this.defaultPositions = [];
     }
 
-    move({x, y}){
-
+    getAvailablePositionsToMove(chessMen) {
     }
+
 }
 
 module.exports = Pawn;

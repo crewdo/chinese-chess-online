@@ -1,3 +1,5 @@
-class Lib {}
+class Lib {
+
+}
 
 module.exports = Lib;
