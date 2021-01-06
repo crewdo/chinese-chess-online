@@ -13,13 +13,19 @@ class ChessGenerator {
         this.maxY = 10;
     }
 
-    generate()
+    static generate()
     {
-        return this.generatePawns() + this.generateCannons()
+        let chessMen =  this.generatePawns() + this.generateCannons()
              + this.generateKings() + this.generateAdvisors()
              + this.generateChariots() + this.generateElephants()
              + this.generateHorses();
 
+        for(let i = 0; i < chessMen.length; i++)
+        {
+            chessMen[i].setId(i);
+        }
+
+        return chessMen;
     }
 
     generatePawns() {

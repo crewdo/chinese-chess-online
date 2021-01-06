@@ -22,11 +22,6 @@ class Game {
         this.gameReset();
         this.chessMen = ChessGenerator.generate();
 
-        for(let i = 0; i < this.chessMen.length; i++)
-        {
-            this.chessMen[i].setId(i);
-        }
-
         if(this.lastWinnerUserId) {
             this.turnOfUserId = this.players.filter(value => value.id !== this.lastWinnerUserId).id;
         }
