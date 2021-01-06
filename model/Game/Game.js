@@ -22,6 +22,11 @@ class Game {
         this.gameReset();
         this.chessMen = ChessGenerator.generate();
 
+        for(let i = 0; i < this.chessMen.length; i++)
+        {
+            this.chessMen[i].setId(i);
+        }
+
         if(this.lastWinnerUserId) {
             this.turnOfUserId = this.players.filter(value => value.id !== this.lastWinnerUserId).id;
         }
@@ -29,13 +34,15 @@ class Game {
             this.turnOfUserId = this.players.filter(value => value.colorKeeping === BaseChessMan.TYPE_RED).id;
         }
 
+        return this.chessMen;
+
     }
 
-    getChessManByCode(code, player)
+    getChessManById(id, player)
     {
         for(let i = 0; i < this.chessMen.length; i++)
         {
-            if(this.chessMen[i].code === code)
+            if(this.chessMen[i].id === id)
             {
                 if(this.isOwner(this.chessMen[i], player))
                 {
@@ -56,9 +63,9 @@ class Game {
 
     }
 
-    clickingToGetAvailablePosition(code, player)
+    clickingToGetAvailablePosition(id, player)
     {
-        var chessMan = this.getChessManByCode(code, player);
+        var chessMan = this.getChessManById(id, player);
 
         if(chessMan)
         {
@@ -67,9 +74,9 @@ class Game {
         return null;
     }
 
-    requestMove(newPos, code, player)
+    requestMove(newPos, id, player)
     {
-        var chessMan = this.getChessManByCode(code, player);
+        var chessMan = this.getChessManById(id, player);
 
         if(chessMan)
         {

@@ -4,7 +4,7 @@ class BaseChessMan {
 
     constructor({color, initPos}) {
         this.color = color;
-        this.code = -1;
+        this.id = -1;
         //position as {x , y}
         this.position = initPos;
         this.name = this.getName();
@@ -33,7 +33,12 @@ class BaseChessMan {
         return names[this.type];
     }
 
-    getInitializePosition()
+    setId(id)
+    {
+        this.id = id;
+    }
+
+    static getInitializePosition()
     {
         if(this.defaultPositions.length === 4)
         {
