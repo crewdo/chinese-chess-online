@@ -1,26 +1,39 @@
 import BaseChessMan from '../Chess/BaseChessMan';
-import ChessGenerator from '../Board/ChessGenerator';
+import ChessService from '../Service/ChessService';
+
 class Game {
-    constructor({players}) {
-        //State: 0 - Not Ready, 1 - Playing
-        this.state = 0;
+
+    STATE_READY = 0;
+    STATE_PLAYING = 1;
+
+    constructor() {
+        this.state = Game.STATE_READY;
         this.lastWinnerUserId = null;
-        this.players = players
+        this.players = []
         this.visitors = [];
         this.turnOfUserId = null;
-        this.chessMen = [];
+        this.chessService = new ChessService();
 
         this.initialize();
     }
 
+    playerJoining(player)
+    {
+        if(this.players.some(value => value.id === player.id)) return false;
+
+        this.players.push(player);
+
+        return true;
+    }
+
     gameReset() {
-        this.state = 0;
+        //
+        this.state = Game.STATE_READY;
     }
 
     initialize() {
 
         this.gameReset();
-        this.chessMen = ChessGenerator.generate();
 
         if(this.lastWinnerUserId) {
             this.turnOfUserId = this.players.filter(value => value.id !== this.lastWinnerUserId).id;
@@ -28,59 +41,14 @@ class Game {
         else {
             this.turnOfUserId = this.players.filter(value => value.colorKeeping === BaseChessMan.TYPE_RED).id;
         }
-
-        return this.chessMen;
-
-    }
-
-    getChessManById(id, player)
-    {
-        for(let i = 0; i < this.chessMen.length; i++)
-        {
-            if(this.chessMen[i].id === id)
-            {
-                if(this.isOwner(this.chessMen[i], player))
-                {
-                    return this.chessMen[i];
-                }
-
-                return null;
-            }
-        }
-    }
-
-    isOwner(chessMan, player)
-    {
-        return  chessMan.color === player.colorKeeping;
     }
 
     start() {
-
+        if(this.state !== 0 || this.players.length !== 2) return false;
+        this.state = Game.STATE_PLAYING;
     }
 
-    clickingToGetAvailablePosition(id, player)
-    {
-        var chessMan = this.getChessManById(id, player);
-
-        if(chessMan)
-        {
-            return chessMan.getAvailablePositionsToMove();
-        }
-        return null;
-    }
-
-    requestMove(newPos, id, player)
-    {
-        var chessMan = this.getChessManById(id, player);
-
-        if(chessMan)
-        {
-           return chessMan.move(newPos, this.chessMen);
-        }
-        return false;
-    }
-
-    log({chessMan, newPos}) {
+    log(chessMan, newPos) {
         //todo: log to Mongo each belongs to Game.
     }
 
