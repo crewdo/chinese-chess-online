@@ -34,10 +34,10 @@ class ChessGenerator {
 
     generateCannons() {
 
-        let propertiesArray = Cannon.getInitializePosition()
+        let properties = Cannon.getInitializePosition()
 
-        for (let i = 0; i < propertiesArray.length; i++) {
-            rs.push(new Cannon(propertiesArray[i]))
+        for (let i = 0; i < properties.length; i++) {
+            rs.push(new Cannon(properties[i]))
         }
 
         return rs;
@@ -45,10 +45,10 @@ class ChessGenerator {
 
     generateHorses() {
 
-        let propertiesArray = Horse.getInitializePosition()
+        let properties = Horse.getInitializePosition()
 
-        for (let i = 0; i < propertiesArray.length; i++) {
-            rs.push(new Horse(propertiesArray[i]))
+        for (let i = 0; i < properties.length; i++) {
+            rs.push(new Horse(properties[i]))
         }
 
         return rs;
@@ -56,10 +56,10 @@ class ChessGenerator {
 
     generateElephants() {
 
-        let propertiesArray = Elephant.getInitializePosition()
+        let properties = Elephant.getInitializePosition()
 
-        for (let i = 0; i < propertiesArray.length; i++) {
-            rs.push(new Elephant(propertiesArray[i]))
+        for (let i = 0; i < properties.length; i++) {
+            rs.push(new Elephant(properties[i]))
         }
 
         return rs;
@@ -67,10 +67,10 @@ class ChessGenerator {
 
     generateChariots() {
 
-        let propertiesArray = Chariot.getInitializePosition();
+        let properties = Chariot.getInitializePosition();
 
-        for (let i = 0; i < propertiesArray.length; i++) {
-            rs.push(new Chariot(propertiesArray[i]))
+        for (let i = 0; i < properties.length; i++) {
+            rs.push(new Chariot(properties[i]))
         }
 
         return rs;
@@ -78,10 +78,10 @@ class ChessGenerator {
 
     generateKings() {
 
-        let propertiesArray = King.getInitializePosition()
+        let properties = King.getInitializePosition()
 
-        for (let i = 0; i < propertiesArray.length; i++) {
-            rs.push(new King(propertiesArray[i]))
+        for (let i = 0; i < properties.length; i++) {
+            rs.push(new King(properties[i]))
         }
 
         return rs;
@@ -89,10 +89,10 @@ class ChessGenerator {
 
     generateAdvisors() {
 
-        let propertiesArray = Advisor.getInitializePosition()
+        let properties = Advisor.getInitializePosition()
 
-        for (let i = 0; i < propertiesArray.length; i++) {
-            rs.push(new Advisor(propertiesArray[i]))
+        for (let i = 0; i < properties.length; i++) {
+            rs.push(new Advisor(properties[i]))
         }
 
         return rs;
