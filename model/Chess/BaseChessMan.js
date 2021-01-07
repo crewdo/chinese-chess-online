@@ -1,6 +1,6 @@
 class BaseChessMan {
-    RED_TYPE = 'r';
-    BLACK_TYPE = 'b';
+    static RED_TYPE = 'r';
+    static BLACK_TYPE = 'b';
 
     constructor({color, initPos}) {
         this.color = color;

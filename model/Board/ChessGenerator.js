@@ -8,9 +8,11 @@ import Horse from '../Chess/Horse';
 
 class ChessGenerator {
 
+    static MAX_X = 8;
+    static MAX_Y = 9;
+
     constructor() {
-        this.maxX = 9;
-        this.maxY = 10;
+
     }
 
     static generate()

@@ -37,14 +37,15 @@ class ChessService {
         return  chessMan.color === player.colorKeeping;
     }
 
-    clickingToGetAvailablePosition(id, player)
+    getAvailablePositionToMoveByChessManId(chessManId, player)
     {
-        var chessMan = this.getChessManById(id, player);
+        var chessMan = this.getChessManById(chessManId, player);
 
         if(chessMan)
         {
-            return chessMan.getAvailablePositionsToMove();
+            return chessMan.getAvailablePositionsToMove(this.chessMen);
         }
+
         return null;
     }
 
