@@ -1,4 +1,5 @@
 const ChessService = require('../Service/ChessService');
+
 class BaseChessMan {
 
     constructor({color, initPos}) {
@@ -45,10 +46,8 @@ class BaseChessMan {
         this.id = id;
     }
 
-    static getInitializePosition()
-    {
-        if(this.defaultPositions.length === 4)
-        {
+    static getInitializePosition() {
+        if (this.defaultPositions.length === 4) {
             return [
                 {
                     color: BaseChessMan.RED_TYPE,
@@ -67,9 +66,7 @@ class BaseChessMan {
                     initPos: this.defaultPositions[3]
                 }
             ];
-        }
-        else if(this.defaultPositions.length === 2)
-        {
+        } else if (this.defaultPositions.length === 2) {
             //King
             return [
                 {
@@ -114,49 +111,50 @@ class BaseChessMan {
         return true;
     }
 
-    goStraight(chessMen, directlyKill = false)
-    {
+    goStraight(chessMen, directlyKill = false) {
         let positions = [];
-        let theManStanding = [];
         let x = this.position.x;
         let y = this.position.y;
 
-        for (var x_left = x - 1, x_right = x + 1; x_left >= 0, x_right <= ChessService.BOARD_MAX_X; x_left--, x_right++){
+        for (var x_left = x - 1, x_right = x + 1; x_left >= 0, x_right <= ChessService.BOARD_MAX_X; x_left--, x_right++) {
 
             //If there's no man stand in loop position, then can move on
-            if(x_left >= 0)
-            {
-                if(!ChessService.getChessManByPosition({x: x_left, y : y}, chessMen))
-                {
-                    positions.push({x: x_left, y : y});
-                }
-                else {
-                    if(directlyKill)
-                    {
-                        positions.push({x: x_left, y : y});
-                    }
-                    else {
-                        theManStanding.push({x: x_left, y : y});
+            if (x_left >= 0) {
+                if (!ChessService.getChessManByPosition({x: x_left, y: y}, chessMen)) {
+                    positions.push({x: x_left, y: y});
+                } else {
+                    if (directlyKill) {
+                        positions.push({x: x_left, y: y});
+                    } else {
+                        for(let a = x_left - 1; a >= 0; a--)
+                        {
+                            if(ChessService.getChessManByPosition({x: a, y : y}, chessMen)) {
+                                positions.push({x: a, y : y});
+                                break;
+                            }
+                        }
                     }
 
                     x_left = -1; //To break Left direction
                 }
             }
 
-            if(x_right <= ChessService.BOARD_MAX_X)
-            {
+            if (x_right <= ChessService.BOARD_MAX_X) {
                 //the same for right direction loop
-                if(!ChessService.getChessManByPosition({x: x_right, y : y}, chessMen))
-                {
-                    positions.push({x: x_right, y : y});
-                }
-                else {
-                    if(directlyKill)
-                    {
-                        positions.push({x: x_right, y : y});
-                    }
-                    else {
-                        theManStanding.push({x: x_right, y : y});
+                if (!ChessService.getChessManByPosition({x: x_right, y: y}, chessMen)) {
+
+                    positions.push({x: x_right, y: y});
+                } else {
+                    if (directlyKill) {
+                        positions.push({x: x_right, y: y});
+                    } else {
+                        for(let a = x_right + 1; a <= ChessService.BOARD_MAX_X; a++)
+                        {
+                            if(ChessService.getChessManByPosition({x: a, y : y}, chessMen)) {
+                                positions.push({x: a, y : y});
+                                break;
+                            }
+                        }
                     }
 
                     x_right = ChessService.BOARD_MAX_X; //To break Left direction
@@ -165,21 +163,22 @@ class BaseChessMan {
         }
 
         //For Y
-        for (var y_down = y - 1, y_up = y + 1; y_down >= 0, y_up <= ChessService.BOARD_MAX_Y; y_down--, y_up++){
+        for (var y_down = y - 1, y_up = y + 1; y_down >= 0, y_up <= ChessService.BOARD_MAX_Y; y_down--, y_up++) {
             //If there's no man stand in loop position, then can move on
-            if(y_down >= 0)
-            {
-                if(!ChessService.getChessManByPosition({x: x, y : y_down}, chessMen))
-                {
-                    positions.push({x: x, y : y_down});
-                }
-                else {
-                    if(directlyKill)
-                    {
-                        positions.push({x: x, y : y_down});
-                    }
-                    else {
-                        theManStanding.push({x: x, y : y_down});
+            if (y_down >= 0) {
+                if (!ChessService.getChessManByPosition({x: x, y: y_down}, chessMen)) {
+                    positions.push({x: x, y: y_down});
+                } else {
+                    if (directlyKill) {
+                        positions.push({x: x, y: y_down});
+                    } else {
+                        for(let a = y_down - 1; a >= 0; a--)
+                        {
+                            if(ChessService.getChessManByPosition({x: x, y : a}, chessMen)) {
+                                positions.push({x: x, y : a});
+                                break;
+                            }
+                        }
                     }
 
                     y_down = -1; //To break Down direction
@@ -188,29 +187,27 @@ class BaseChessMan {
             }
 
             //the same for right direction loop
-            if(y_up <= ChessService.BOARD_MAX_Y)
-            {
-                if(!ChessService.getChessManByPosition({x: x, y : y_up}, chessMen))
-                {
-                    positions.push({x: x, y : y_up});
-                }
-                else {
-                    if(directlyKill)
-                    {
-                        positions.push({x: x, y : y_up});
-                    }
-                    else {
-                        theManStanding.push({x: x, y : y_up});
+            if (y_up <= ChessService.BOARD_MAX_Y) {
+                if (!ChessService.getChessManByPosition({x: x, y: y_up}, chessMen)) {
+                    positions.push({x: x, y: y_up});
+                } else {
+                    if (directlyKill) {
+                        positions.push({x: x, y: y_up});
+                    } else {
+                        for(let a = y_up + 1; a <= ChessService.BOARD_MAX_Y; a++)
+                        {
+                            if(ChessService.getChessManByPosition({x: x, y : a}, chessMen)) {
+                                positions.push({x: x, y : a});
+                                break;
+                            }
+                        }
                     }
                     y_up = ChessService.BOARD_MAX_Y; //To break Left direction
                 }
             }
         }
 
-        return {
-            positions,
-            theManStanding
-        };
+        return positions
     }
 
 }

@@ -14,18 +14,7 @@ class Cannon extends BaseChessMan {
 
     getAvailablePositionsToMoveOrKill(chessMen)
     {
-        let x = this.position.x;
-        let y = this.position.y;
-
-        let straightPosition = this.goStraight(chessMen);
-
-        //crewtodo: Checking Kill for Cannon (need Color To Check)
-        for(let i = 0; i < straightPosition.theManStanding.length; i++)
-        {
-
-        }
-
-        return straightPosition.positions;
+        return this.goStraight(chessMen);
     }
 }
 

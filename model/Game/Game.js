@@ -37,8 +37,8 @@ class Game {
         this.gameRestart();
 
         this.turnOfUserId = this.lastWinnerUserId
-                            ? this.room.players.filter(value => value.id !== this.lastWinnerUserId)[0].id
-                            : this.room.players.filter(value => value.colorKeeping === BaseChessMan.RED_TYPE)[0].id;
+                            ? this.room.players.find(value => value.id !== this.lastWinnerUserId).id
+                            : this.room.players.find(value => value.colorKeeping === BaseChessMan.RED_TYPE).id;
     }
 
     start() {

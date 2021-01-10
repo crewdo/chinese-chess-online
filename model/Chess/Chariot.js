@@ -14,7 +14,7 @@ class Chariot extends BaseChessMan {
 
     getAvailablePositionsToMoveOrKill(chessMen)
     {
-        return  this.goStraight(chessMen, true).positions;
+        return  this.goStraight(chessMen, true);
     }
 }
 

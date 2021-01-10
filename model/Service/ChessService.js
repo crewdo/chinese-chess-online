@@ -38,13 +38,7 @@ class ChessService {
 
     static getChessManByPosition(position, chessMen)
     {
-        let chessMan = chessMen.filter(value => value.position.x === position.x && value.position.y === position.y);
-        if(chessMan && chessMan.length === 1)
-        {
-            return chessMan[0];
-        }
-
-        return null;
+        return chessMen.find(value => value.position.x === position.x && value.position.y === position.y);
     }
 
     isOwner(chessMan, player)

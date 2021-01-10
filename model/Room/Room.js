@@ -49,7 +49,7 @@ class Room {
 
     getPlayer(id)
     {
-        return this.players.filter(value => value.id === id)[0];
+        return this.players.find(value => value.id === id);
     }
 
     static formatRoomData(allRooms) {
