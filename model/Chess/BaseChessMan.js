@@ -1,3 +1,4 @@
+const ChessService = require('../Service/ChessService');
 class BaseChessMan {
 
     constructor({color, initPos}) {
@@ -9,15 +10,14 @@ class BaseChessMan {
 
     }
 
-    static get RED_TYPE()
-    {
+    static get RED_TYPE() {
         return 'r';
     }
 
-    static get BLACK_TYPE()
-    {
+    static get BLACK_TYPE() {
         return 'b';
     }
+
 
     move(newPos, chessMen) {
         // if(this.getAvailablePositionsToMove(chessMen).some((value) => value === newPos)){
@@ -41,8 +41,7 @@ class BaseChessMan {
         return names[this.type];
     }
 
-    setId(id)
-    {
+    setId(id) {
         this.id = id;
     }
 
@@ -85,6 +84,35 @@ class BaseChessMan {
         }
 
         return [];
+    }
+
+    baseCheckingAndReturnPositions(chessMen) {
+
+        var positions = this.getAvailablePositionsToMove(chessMen);
+
+        console.log(positions);
+        var returnPositions = [];
+
+        for (let i = 0; i < positions.length; i++) {
+
+            if (!this.kingSafeCheck(positions[i], chessMen)) continue;
+
+            let allyCheck = ChessService.getChessManByPosition(positions[i], chessMen);
+
+            if (allyCheck && allyCheck.color === this.color) {
+                continue;
+            }
+
+            returnPositions.push(positions[i]);
+        }
+
+        return returnPositions;
+    }
+
+    kingSafeCheck(positionWillMove, chessMen) {
+        let chessMan = this;
+        //crewtodo: implement
+        return true;
     }
 }
 

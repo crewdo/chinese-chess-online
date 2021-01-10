@@ -1,9 +1,23 @@
-const ChessGenerator =  require("../Board/ChessGenerator");
-
 class ChessService {
 
-    constructor() {
-        this.chessMen = ChessGenerator.generate();
+    constructor(chessMen) {
+        this.chessMen = chessMen;
+    }
+
+    static get BOARD_MAX_X() {
+        return 8;
+    }
+
+    static get BOARD_MAX_Y(){
+        return 9;
+    }
+
+    static get BOARD_RED_RIVER_Y() {
+        return 4;
+    }
+
+    static get BOARD_BLACK_RIVER_Y(){
+        return 5;
     }
 
     getChessManById(id, player)
@@ -22,13 +36,14 @@ class ChessService {
         }
     }
 
-    getChessManByPosition(x,y)
+    static getChessManByPosition(position, chessMen)
     {
-        let chessMan = this.chessMen.filter(value => value.position.x === x && value.position.y === y);
-        if(chessMan && chessMan.length > 0)
+        let chessMan = chessMen.filter(value => value.position.x === position.x && value.position.y === position.y);
+        if(chessMan && chessMan.length === 1)
         {
             return chessMan;
         }
+
         return null;
     }
 
@@ -43,7 +58,7 @@ class ChessService {
 
         if(chessMan)
         {
-            return chessMan.getAvailablePositionsToMove(this.chessMen);
+            return chessMan.baseCheckingAndReturnPositions(this.chessMen);
         }
 
         return null;

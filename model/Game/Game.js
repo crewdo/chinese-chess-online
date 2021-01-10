@@ -1,5 +1,6 @@
 const BaseChessMan = require('../Chess/BaseChessMan');
 const ChessService = require('../Service/ChessService');
+const ChessGenerator =  require("../Board/ChessGenerator");
 
 class Game {
 
@@ -8,7 +9,7 @@ class Game {
         this.lastWinnerUserId = null;
         this.turnOfUserId = null;
         this.step = 0;
-        this.chessService = new ChessService();
+        this.chessService = new ChessService(ChessGenerator.generate());
         this.room = room;
 
         this.initialize();
@@ -28,7 +29,7 @@ class Game {
     gameRestart() {
         this.step = 0;
         this.state = Game.STATE_READY;
-        this.chessService = new ChessService();
+        this.chessService = new ChessService(ChessGenerator.generate());
     }
 
     initialize() {

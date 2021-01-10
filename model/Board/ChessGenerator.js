@@ -9,18 +9,6 @@ const BaseChessMan = require('../Chess/BaseChessMan');
 
 class ChessGenerator {
 
-    constructor() {
-
-    }
-
-    static get MAX_X() {
-        return 8;
-    }
-
-    static get MAX_Y(){
-        return 9;
-    }
-
     static generate() {
         let firstMen = this.generateCannons();
         var chessMen =  firstMen.concat(this.generatePawns(), this.generateKings(), this.generateAdvisors(), this.generateChariots(),
