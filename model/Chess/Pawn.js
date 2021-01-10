@@ -13,7 +13,7 @@ class Pawn extends BaseChessMan {
         return [];
     }
 
-    getAvailablePositionsToMove(chessMen)
+    getAvailablePositionsToMoveOrKill(chessMen)
     {
         let x = this.position.x;
         let y = this.position.y;

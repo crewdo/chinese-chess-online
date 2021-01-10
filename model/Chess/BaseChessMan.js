@@ -20,7 +20,7 @@ class BaseChessMan {
 
 
     move(newPos, chessMen) {
-        // if(this.getAvailablePositionsToMove(chessMen).some((value) => value === newPos)){
+        // if(this.getAvailablePositionsToMoveOrKill(chessMen).some((value) => value === newPos)){
         //     this.position = newPos;
         // }
 
@@ -88,9 +88,8 @@ class BaseChessMan {
 
     baseCheckingAndReturnPositions(chessMen) {
 
-        var positions = this.getAvailablePositionsToMove(chessMen);
+        var positions = this.getAvailablePositionsToMoveOrKill(chessMen);
 
-        console.log(positions);
         var returnPositions = [];
 
         for (let i = 0; i < positions.length; i++) {
@@ -114,6 +113,106 @@ class BaseChessMan {
         //crewtodo: implement
         return true;
     }
+
+    goStraight(chessMen, directlyKill = false)
+    {
+        let positions = [];
+        let theManStanding = [];
+        let x = this.position.x;
+        let y = this.position.y;
+
+        for (var x_left = x - 1, x_right = x + 1; x_left >= 0, x_right <= ChessService.BOARD_MAX_X; x_left--, x_right++){
+
+            //If there's no man stand in loop position, then can move on
+            if(x_left >= 0)
+            {
+                if(!ChessService.getChessManByPosition({x: x_left, y : y}, chessMen))
+                {
+                    positions.push({x: x_left, y : y});
+                }
+                else {
+                    if(directlyKill)
+                    {
+                        positions.push({x: x_left, y : y});
+                    }
+                    else {
+                        theManStanding.push({x: x_left, y : y});
+                    }
+
+                    x_left = -1; //To break Left direction
+                }
+            }
+
+            if(x_right <= ChessService.BOARD_MAX_X)
+            {
+                //the same for right direction loop
+                if(!ChessService.getChessManByPosition({x: x_right, y : y}, chessMen))
+                {
+                    positions.push({x: x_right, y : y});
+                }
+                else {
+                    if(directlyKill)
+                    {
+                        positions.push({x: x_right, y : y});
+                    }
+                    else {
+                        theManStanding.push({x: x_right, y : y});
+                    }
+
+                    x_right = ChessService.BOARD_MAX_X; //To break Left direction
+                }
+            }
+        }
+
+        //For Y
+        for (var y_down = y - 1, y_up = y + 1; y_down >= 0, y_up <= ChessService.BOARD_MAX_Y; y_down--, y_up++){
+            //If there's no man stand in loop position, then can move on
+            if(y_down >= 0)
+            {
+                if(!ChessService.getChessManByPosition({x: x, y : y_down}, chessMen))
+                {
+                    positions.push({x: x, y : y_down});
+                }
+                else {
+                    if(directlyKill)
+                    {
+                        positions.push({x: x, y : y_down});
+                    }
+                    else {
+                        theManStanding.push({x: x, y : y_down});
+                    }
+
+                    y_down = -1; //To break Down direction
+                }
+
+            }
+
+            //the same for right direction loop
+            if(y_up <= ChessService.BOARD_MAX_Y)
+            {
+                if(!ChessService.getChessManByPosition({x: x, y : y_up}, chessMen))
+                {
+                    positions.push({x: x, y : y_up});
+                }
+                else {
+                    if(directlyKill)
+                    {
+                        positions.push({x: x, y : y_up});
+                    }
+                    else {
+                        theManStanding.push({x: x, y : y_up});
+                    }
+                    y_up = ChessService.BOARD_MAX_Y; //To break Left direction
+                }
+            }
+        }
+
+        return {
+            positions,
+            theManStanding
+        };
+    }
+
 }
 
 module.exports = BaseChessMan;

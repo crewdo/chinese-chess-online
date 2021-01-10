@@ -12,7 +12,7 @@ class Elephant extends BaseChessMan {
         return [{x: 2, y: 0}, {x: 6, y: 0}, {x: 2, y: 9}, {x: 6, y: 9}];
     }
 
-    getAvailablePositionsToMove(chessMen) {
+    getAvailablePositionsToMoveOrKill(chessMen) {
 
     }
 }

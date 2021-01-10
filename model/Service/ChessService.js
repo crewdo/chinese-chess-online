@@ -41,7 +41,7 @@ class ChessService {
         let chessMan = chessMen.filter(value => value.position.x === position.x && value.position.y === position.y);
         if(chessMan && chessMan.length === 1)
         {
-            return chessMan;
+            return chessMan[0];
         }
 
         return null;

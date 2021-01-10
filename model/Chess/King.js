@@ -11,7 +11,7 @@ class King extends BaseChessMan {
     {
         return  [{x: 4, y: 0}, {x: 4, y: 9}];
     }
-    getAvailablePositionsToMove(chessMen) {
+    getAvailablePositionsToMoveOrKill(chessMen) {
 
     }
 }

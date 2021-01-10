@@ -12,7 +12,7 @@ class Horse extends BaseChessMan {
         return [{x: 1, y: 0}, {x: 7, y: 0}, {x: 1, y: 9}, {x: 7, y: 9}];
     }
 
-    getAvailablePositionsToMove(chessMen) {
+    getAvailablePositionsToMoveOrKill(chessMen) {
 
     }
 }
