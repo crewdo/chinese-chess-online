@@ -43,7 +43,6 @@ class ChessService {
 
         if(chessMan)
         {
-            return [1,2];
             return chessMan.getAvailablePositionsToMove(this.chessMen);
         }
 
@@ -59,6 +58,11 @@ class ChessService {
             return chessMan.move(newPos, this.chessMen);
         }
         return false;
+    }
+
+    kill(chessManId)
+    {
+
     }
 }
 

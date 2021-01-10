@@ -159,10 +159,8 @@ class Hall {
 
             socket.on('user_request_available_pos', (roomId, chessManId) => {
 
-                console.log(roomId, chessManId);
                 let playerInspector = self.guard(roomId, socket.id)
                 if (!playerInspector) return;
-                console.log(playerInspector);
 
                 var positions = self.roomList[roomId].game.chessService.getAvailablePositionToMoveByChessManId(chessManId, playerInspector);
                 self.socketGlobal.to(`${socket.id}`).emit("available_positions", {available_positions: positions});
@@ -171,7 +169,8 @@ class Hall {
 
             socket.on('user_request_move', (roomId, newPos, chessManId) => {
 
-                if (!self.guard(roomId, socket.id)) return;
+                let playerInspector = self.guard(roomId, socket.id)
+                if (!playerInspector) return;
 
                 //crewtodo: process moving
                 //check pos validity

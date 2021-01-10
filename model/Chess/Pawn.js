@@ -14,6 +14,7 @@ class Pawn extends BaseChessMan {
 
     getAvailablePositionsToMove(chessMen)
     {
+        console.log(this.position, chessMen);
     }
 
 }
