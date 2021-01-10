@@ -10,6 +10,7 @@ class Advisor extends BaseChessMan {
     }
 
     getAvailablePositionsToMove() {
+        //crewtodo: checking if king checked
         return [];
         //now get all chessMen, can evaluate which position can move on
     }

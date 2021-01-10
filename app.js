@@ -10,7 +10,7 @@ const port = process.env.PORT || 888;
 const socket = io(server);
 
 let TheHall = new Hall(socket);
-TheHall.bindingSocketEvent();
+TheHall.reception();
 
 server.listen(port, () =>{
     console.log("Connected to port: "+ port)

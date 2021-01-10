@@ -11,12 +11,12 @@ class Hall {
 
     }
 
-    bindingSocketEvent() {
+    reception() {
         let self = this;
 
         this.socketGlobal.on("connection", function (socket) {
             socket.on('user_online', function() {
-                socket.emit('list_out_rooms', self.filterDefaultRoom(self.roomList));
+                socket.emit('list_out_rooms', Room.filterDefaultRoom(self.roomList));
             });
 
             socket.on('user_created_room', (username, callback) => {
@@ -28,17 +28,17 @@ class Hall {
                     callback(newRoomId);
 
                     self.roomList[newRoomId] = new Room(newRoomId);
-                    self.roomList[newRoomId].initialize(socket.id, username, BaseChessMan.RED_TYPE);
+                    self.roomList[newRoomId].initialize(socket.id, username);
 
                     //emit to all online users that there's new room has just created.
-                    self.socketGlobal.emit('list_out_rooms', self.filterDefaultRoom(self.roomList));
+                    self.socketGlobal.emit('list_out_rooms', Room.filterDefaultRoom(self.roomList));
                 }
             });
 
             socket.on('disconnecting', function(){
 
                 var rooms = socket.rooms;
-                var socketInRoom = self.filterCurrentRoomId(rooms);
+                var socketInRoom = Room.filterCurrentRoomId(rooms);
 
                 if(socketInRoom && self.checkingRoomExisting(socketInRoom)) {
 
@@ -50,15 +50,18 @@ class Hall {
                     });
 
                     //To notice people in room aware that a player has just left
-                    self.emitRoomThatPlayersHasJustChanged(currentRoom);
+                    self.socketGlobal.to(`${currentRoom.roomId}`).emit("a_player_left");
 
-                    //If only one stay in Room, set his color to Red.
+                    //If only one stay in Room, set his color to xRed.
                     if(currentRoom.players.length === 1){
                         currentRoom.game.lastWinnerUserId = null;
                         currentRoom.players[0].colorKeeping = BaseChessMan.RED_TYPE;
                     }
                     else (currentRoom.players.length === 0)
                     {
+                        //emit a room has just removed
+                        self.socketGlobal.emit('a_room_removed', {roomId : currentRoom.roomId});
+
                         //this also remove game refer to room.
                         delete self.roomList[socketInRoom];
                     }
@@ -89,7 +92,8 @@ class Hall {
                             callback('Joined as Visitor');
                         }
 
-                        //crewtodo: emit all
+                        self.socketGlobal.to(`${roomId}`).emit("a_player_joined");
+
                     }
                 }
 
@@ -122,29 +126,35 @@ class Hall {
 
             socket.on('user_request_available_pos', (roomId, chessManId) => {
 
-                if(!self.checkPermissionForTurn(roomId, socket.id)) return;
+                if(!self.guard(roomId, socket.id)) return;
 
                 var positions = self.roomList[roomId].game.chessService.getAvailablePositionToMoveByChessManId(chessManId, player);
                 self.socketGlobal.to(`${socket.id}`).emit("available_positions", {available_positions: positions});
             });
 
+            socket.on('user_request_move', (roomId, newPos, chessManId) => {
+
+                if(!self.guard(roomId, socket.id)) return;
+
+                //crewtodo: process moving
+                //check pos validity
+                //check move by get availabe pos
+                //process moving
+                self.socketGlobal.to(`${currentRoom.roomId}`).emit("user_moved", {newPos, chessManId});
+            });
+
         });
     }
 
-    emitRoomThatPlayersHasJustChanged(room)
-    {
-
-    }
-
-    checkPermissionForTurn(roomId, playerId)
+    guard(roomId, playerId)
     {
         if(this.checkingRoomExisting(roomId)) {
 
-            let player = self.roomList[roomId].getPlayer(playerId);
+            let player = this.roomList[roomId].getPlayer(playerId);
 
             if(typeof player !== "undefined") {
 
-                return player.id === self.roomList[roomId].game.turnOfUserId
+                return player.id === this.roomList[roomId].game.turnOfUserId
             }
 
             return false
@@ -153,20 +163,6 @@ class Hall {
 
     checkingRoomExisting(roomId){
         return typeof this.roomList[roomId] !== "undefined";
-    }
-
-    filterDefaultRoom(allRooms) {
-        return Object.keys(allRooms).filter(key => key.indexOf('roomID::') !== -1)
-            .reduce((obj, key) => { obj[key] = {length: allRooms[key].players.length}; return obj; }, {});
-    }
-
-    filterCurrentRoomId(playerRooms) {
-
-        let currentRoomObject = Object.keys(playerRooms).filter(key => key.indexOf(Room.ROOM_NAME_PREFIX) !== -1);
-
-        if(currentRoomObject.length > 0) return currentRoomObject[0];
-
-        return false;
     }
 
 }

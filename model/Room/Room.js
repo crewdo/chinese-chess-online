@@ -12,9 +12,9 @@ class Room {
         this.visitors = [];
     }
 
-    initialize(id, newUsername, colorKeeping)
+    initialize(id, newUsername)
     {
-        var player = new Player({id: id, colorKeeping: colorKeeping, name : newUsername})
+        var player = new Player({id: id, colorKeeping:  BaseChessMan.RED_TYPE, name : newUsername})
 
         if(this.joinAsPlayer(player))
         {
@@ -46,6 +46,20 @@ class Room {
     getPlayer(id)
     {
         return this.players.filter(value => value.id === id)[0];
+    }
+
+    static filterDefaultRoom(allRooms) {
+        return Object.keys(allRooms).filter(key => key.indexOf(Room.ROOM_NAME_PREFIX) !== -1)
+            .reduce((obj, key) => { obj[key] = {length: allRooms[key].players.length}; return obj; }, {});
+    }
+
+    static filterCurrentRoomId(playerRooms) {
+
+        let currentRoomObject = Object.keys(playerRooms).filter(key => key.indexOf(Room.ROOM_NAME_PREFIX) !== -1);
+
+        if(currentRoomObject.length > 0) return currentRoomObject[0];
+
+        return false;
     }
 
 }
