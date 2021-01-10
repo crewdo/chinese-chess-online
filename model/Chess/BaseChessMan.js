@@ -120,23 +120,7 @@ class BaseChessMan {
 
             //If there's no man stand in loop position, then can move on
             if (x_left >= 0) {
-                if (!ChessService.getChessManByPosition({x: x_left, y: y}, chessMen)) {
-                    positions.push({x: x_left, y: y});
-                } else {
-                    if (directlyKill) {
-                        positions.push({x: x_left, y: y});
-                    } else {
-                        for(let a = x_left - 1; a >= 0; a--)
-                        {
-                            if(ChessService.getChessManByPosition({x: a, y : y}, chessMen)) {
-                                positions.push({x: a, y : y});
-                                break;
-                            }
-                        }
-                    }
-
-                    x_left = -1; //To break Left direction
-                }
+               x_left = this.getPosForXLeftYDown(chessMen, x_left, y, positions, directlyKill).x
             }
 
             if (x_right <= ChessService.BOARD_MAX_X) {
@@ -166,24 +150,7 @@ class BaseChessMan {
         for (var y_down = y - 1, y_up = y + 1; y_down >= 0, y_up <= ChessService.BOARD_MAX_Y; y_down--, y_up++) {
             //If there's no man stand in loop position, then can move on
             if (y_down >= 0) {
-                if (!ChessService.getChessManByPosition({x: x, y: y_down}, chessMen)) {
-                    positions.push({x: x, y: y_down});
-                } else {
-                    if (directlyKill) {
-                        positions.push({x: x, y: y_down});
-                    } else {
-                        for(let a = y_down - 1; a >= 0; a--)
-                        {
-                            if(ChessService.getChessManByPosition({x: x, y : a}, chessMen)) {
-                                positions.push({x: x, y : a});
-                                break;
-                            }
-                        }
-                    }
-
-                    y_down = -1; //To break Down direction
-                }
-
+               y_down = this.getPosForXLeftYDown(chessMen, x, y_down, positions, directlyKill).y;
             }
 
             //the same for right direction loop
@@ -208,6 +175,29 @@ class BaseChessMan {
         }
 
         return positions
+    }
+
+    getPosForXLeftYDown(chessMen, x, y, positions, directlyKill)
+    {
+        if (!ChessService.getChessManByPosition({x: x, y: y}, chessMen)) {
+            positions.push({x: x, y: y});
+        } else {
+            if (directlyKill) {
+                positions.push({x: x, y: y});
+            } else {
+                for(let a = y - 1; a >= 0; a--)
+                {
+                    if(ChessService.getChessManByPosition({x: x, y : a}, chessMen)) {
+                        positions.push({x: x, y : a});
+                        break;
+                    }
+                }
+            }
+
+           return -1;
+        }
+
+        return {x, y};
     }
 
 }
