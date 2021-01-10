@@ -32,6 +32,8 @@ class Hall {
 
                     //emit to all online users that there's new room has just created.
                     self.socketGlobal.emit('list_out_rooms', Room.filterDefaultRoom(self.roomList));
+                    self.socketGlobal.to(`${socket.id}`).emit("chess_men_data", {chessMen : self.roomList[newRoomId].game.chessService.chessMen});
+
                 }
             });
 
@@ -61,7 +63,6 @@ class Hall {
                     {
                         //emit a room has just removed
                         self.socketGlobal.emit('a_room_removed', {roomId : currentRoom.roomId});
-
                         //this also remove game refer to room.
                         delete self.roomList[socketInRoom];
                     }
@@ -70,7 +71,9 @@ class Hall {
 
             });
 
-            socket.on('user_joined', (roomId, username, callback)=> {
+            socket.on('user_joined', (roomId, username, callback) => {
+
+                var joinType = 'visitor';
 
                 if(typeof socket.adapter.rooms[roomId] !== "undefined" && typeof self.roomList[roomId] !== "undefined"){
 
@@ -85,6 +88,8 @@ class Hall {
                             self.roomList[roomId].joinAsPlayer(player);
 
                             callback('Joined as Player');
+
+                            joinType = 'player';
                         }
                         else {
                             var visitor = new Visitor({id: socket.id, name : username})
@@ -92,7 +97,9 @@ class Hall {
                             callback('Joined as Visitor');
                         }
 
-                        self.socketGlobal.to(`${roomId}`).emit("a_player_joined");
+                        self.socketGlobal.to(`${roomId}`).emit("a_user_joined", {joinType : joinType});
+
+                        self.socketGlobal.to(`${socket.id}`).emit("chess_men_data", {chessMen : self.roomList[roomId].game.chessService.chessMen});
 
                     }
                 }

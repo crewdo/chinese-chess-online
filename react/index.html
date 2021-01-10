@@ -6,24 +6,46 @@
 </div>
 
 <script  src="./js/socket-io.js"></script>
+<script  src="./js/jquery-3.4.1.js"></script>
 <script>
 
     var socket = io();
 
+    var rooms = $('#rooms');
+
     document.addEventListener("DOMContentLoaded", function(event) {
         socket.emit('user_online');
 
+        $(document).on('click', '.roomItem', function (){
+            socket.emit('user_joined', $(this).data('room-id'), "crewdo_joined", function(){});
+        })
+
         document.getElementById('createRoom').addEventListener('click', function (){
-            socket.emit('user_created_room', {username: "crewdo"}, function(){});
+            socket.emit('user_created_room', "crewdo", function(){});
         });
         (function () {
             socket.on("list_out_rooms", data => {
-                console.log(data);
+                rooms.html(``);
+                var keys = Object.keys(data, function (i, e) {
+                })
+
+                for (let i = 0; i < keys.length; i++)
+                {
+                    rooms.append(`<div class="roomItem" id="${keys[i]}" data-room-id="${keys[i]}">${keys[i]} (length: ${data[keys[i]].length})</div>`);
+                }
             });
 
             socket.on("a_room_removed", data => {
                 console.log('a room removed:', data);
+                $(`#${data.roomId}`).remove();
             });
+
+            socket.on("chess_men_data", data => {
+                console.log('chess_men_data', data);
+            });
+
+
+
         })();
     });
 

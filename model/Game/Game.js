@@ -24,14 +24,15 @@ class Game {
     }
 
 
-    gameReset() {
+    gameRestart() {
         //
         this.state = Game.STATE_READY;
+        this.chessService = new ChessService();
     }
 
     initialize() {
 
-        this.gameReset();
+        this.gameRestart();
 
         this.turnOfUserId = this.lastWinnerUserId
                             ? this.room.players.filter(value => value.id !== this.lastWinnerUserId).id
@@ -46,7 +47,7 @@ class Game {
     }
 
     log(chessMan, newPos) {
-        //todo: log to Mongo each belongs to Game.
+
     }
 
 }

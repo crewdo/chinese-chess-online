@@ -17,7 +17,7 @@ class ChessGenerator {
         return 8;
     }
 
-    static get MAX_Y() {
+    static get MAX_Y(){
         return 9;
     }
 
