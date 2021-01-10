@@ -52,9 +52,9 @@ class Room {
         return this.players.filter(value => value.id === id)[0];
     }
 
-    static filterDefaultRoom(allRooms) {
+    static formatRoomData(allRooms) {
         return Object.keys(allRooms).filter(key => key.indexOf(Room.ROOM_NAME_PREFIX) !== -1)
-            .reduce((obj, key) => { obj[key] = {length: allRooms[key].players.length}; return obj; }, {});
+            .reduce((obj, key) => { obj[key] = {length: allRooms[key].players.length, visitors : allRooms[key].visitors.length}; return obj; }, {});
     }
 
     static filterCurrentRoomId(playerRooms) {

@@ -16,7 +16,7 @@ class Hall {
 
         this.socketGlobal.on("connection", function (socket) {
             socket.on('user_online', function () {
-                socket.emit('list_out_rooms', Room.filterDefaultRoom(self.roomList));
+                self.emitListOutRooms()
             });
 
             socket.on('user_created_room', (username, callback) => {
@@ -31,7 +31,7 @@ class Hall {
                     self.roomList[newRoomId].initialize(socket.id, username);
 
                     //emit to all online users that there's new room has just created.
-                    self.socketGlobal.emit('list_out_rooms', Room.filterDefaultRoom(self.roomList));
+                    self.emitListOutRooms();
                     self.socketGlobal.to(`${socket.id}`).emit("chess_men_data", {chessMen: self.roomList[newRoomId].game.chessService.chessMen});
 
                 }
@@ -46,25 +46,41 @@ class Hall {
 
                     var currentRoom = self.roomList[socketInRoom];
 
+                    let currentRoomPlayerCount = currentRoom.players.length;
+
+                    let leftType = 'player';
                     //Process Remove Player From Room
                     currentRoom.players = currentRoom.players.filter(e => {
                         return e.id !== socket.id;
                     });
 
+                    if(currentRoomPlayerCount === currentRoom.players.length)
+                    {
+                        //Process Remove Visitor From Room
+                        currentRoom.visitors = currentRoom.visitors.filter(e => {
+                            return e.id !== socket.id;
+                        });
+
+                        leftType = 'visitor';
+                    }
+
                     //To notice people in room aware that a player has just left
-                    self.socketGlobal.to(`${currentRoom.roomId}`).emit("a_player_left");
+                    self.socketGlobal.to(`${currentRoom.roomId}`).emit("a_user_left", {leftType: leftType});
 
                     //If only one stay in Room, set his color to xRed.
                     if (currentRoom.players.length === 1) {
-                        currentRoom.game.lastWinnerUserId = null;
                         currentRoom.players[0].colorKeeping = BaseChessMan.RED_TYPE;
-                    } else (currentRoom.players.length === 0)
+                        currentRoom.game.gameRestart();
+                    }
+                    else if (currentRoom.players.length === 0)
                     {
                         //emit a room has just removed
                         self.socketGlobal.emit('a_room_removed', {roomId: currentRoom.roomId});
                         //this also remove game refer to room.
                         delete self.roomList[socketInRoom];
                     }
+
+                    self.emitListOutRooms();
 
                 }
 
@@ -99,8 +115,13 @@ class Hall {
                             callback('Joined as Visitor');
                         }
 
+                        //let people know that length of each room list has changed
+                        self.emitListOutRooms();
+
+                        //notice member that a user has joined
                         self.socketGlobal.to(`${roomId}`).emit("a_user_joined", {joinType: joinType});
 
+                        //notice member current game chessMen data
                         self.socketGlobal.to(`${socket.id}`).emit("chess_men_data", {chessMen: self.roomList[roomId].game.chessService.chessMen});
 
                     }
@@ -162,8 +183,15 @@ class Hall {
         });
     }
 
+    emitListOutRooms()
+    {
+        this.socketGlobal.emit('list_out_rooms', Room.formatRoomData(this.roomList));
+    }
+
     guard(roomId, playerId) {
         if (this.checkingRoomExisting(roomId)) {
+
+            if(this.roomList[roomId].game.state === 0) return;
 
             let player = this.roomList[roomId].getPlayer(playerId);
 
