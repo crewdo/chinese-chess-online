@@ -2,6 +2,8 @@
 <body>
 <div id="app">
     <button id="createRoom">create room</button>
+    <button id="start">start</button>
+    <button id="requestmove">request move</button>
     <div id="rooms"></div>
 </div>
 
@@ -18,6 +20,16 @@
 
         $(document).on('click', '.roomItem', function (){
             socket.emit('user_joined', $(this).data('room-id'), "crewdo_joined", function(){});
+        })
+
+        $(document).on('click', '#start', function (){
+            let roomId = $('#rooms').find('.roomItem:first-child').data('room-id');
+            socket.emit('user_request_start', roomId);
+        })
+        $(document).on('click', '#requestmove', function (){
+            let roomId = $('#rooms').find('.roomItem:first-child').data('room-id');
+            socket.emit('user_request_available_pos', roomId, 10);
+
         })
 
         document.getElementById('createRoom').addEventListener('click', function (){
@@ -40,11 +52,16 @@
                 $(`#${data.roomId}`).remove();
             });
 
+            socket.on("user_turned", data => {
+                console.log('user_turned:', data);
+            });
+
             socket.on("chess_men_data", data => {
                 console.log('chess_men_data', data);
             });
-
-
+             socket.on("available_positions", data => {
+                console.log('available_positions', data);
+            });
 
         })();
     });
