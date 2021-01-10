@@ -3,9 +3,6 @@ const ChessService = require('../Service/ChessService');
 
 class Game {
 
-    static STATE_READY = 0;
-    static STATE_PLAYING = 1;
-
     constructor(room) {
         this.state = Game.STATE_READY;
         this.lastWinnerUserId = null;
@@ -14,6 +11,16 @@ class Game {
         this.room = room;
 
         this.initialize();
+    }
+
+    static get STATE_READY()
+    {
+        return 0;
+    }
+
+    static get STATE_PLAYING()
+    {
+        return 1;
     }
 
 

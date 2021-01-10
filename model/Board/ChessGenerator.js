@@ -8,11 +8,16 @@ const Horse =  require('../Chess/Horse');
 
 class ChessGenerator {
 
-    static MAX_X = 8;
-    static MAX_Y = 9;
-
     constructor() {
 
+    }
+
+    static get MAX_X() {
+        return 8;
+    }
+
+    static get MAX_Y() {
+        return 9;
     }
 
     static generate()

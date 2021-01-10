@@ -1,4 +1,4 @@
-import ChessGenerator from "../Board/ChessGenerator";
+const ChessGenerator =  require("../Board/ChessGenerator");
 
 class ChessService {
 

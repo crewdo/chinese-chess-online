@@ -1,6 +1,4 @@
 class BaseChessMan {
-    static RED_TYPE = 'r';
-    static BLACK_TYPE = 'b';
 
     constructor({color, initPos}) {
         this.color = color;
@@ -9,6 +7,16 @@ class BaseChessMan {
         this.position = initPos;
         this.name = this.getName();
 
+    }
+
+    static get RED_TYPE()
+    {
+        return 'r';
+    }
+
+    static get BLACK_TYPE()
+    {
+        return 'b';
     }
 
     move(newPos, chessMen) {

@@ -1,15 +1,18 @@
-import Player from '../Player/Player';
-import Game from '../Game/Game';
+const Player  =  require('../Player/Player');
+const Game =  require('../Game/Game');
 
 class Room {
-
-    static ROOM_NAME_PREFIX = 'chinese_chess_room_id';
 
     constructor(roomId)
     {
         this.roomId = roomId;
         this.players = []
         this.visitors = [];
+    }
+
+    static get ROOM_NAME_PREFIX()
+    {
+        return 'chinese_chess_room_id'
     }
 
     initialize(id, newUsername)
