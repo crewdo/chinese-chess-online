@@ -13,7 +13,7 @@ class Room {
 
     static get ROOM_NAME_PREFIX()
     {
-        return 'chinese_chess_room_id'
+        return 'chinese_chess_room_id_'
     }
 
     initialize(id, newUsername)

@@ -1,7 +1,8 @@
 <html>
 <body>
 <div id="app">
-    Thudo
+    <button id="createRoom">create room</button>
+    <div id="rooms"></div>
 </div>
 
 <script  src="./js/socket-io.js"></script>
@@ -9,16 +10,22 @@
 
     var socket = io();
 
-    socket.emit('user_online');
-    socket.emit('user_created_room', {username: "crewdo"}, function(){})
+    document.addEventListener("DOMContentLoaded", function(event) {
+        socket.emit('user_online');
 
-
-    (function () {
-        socket.on("list_out_rooms", data => {
-            console.log(data);
+        document.getElementById('createRoom').addEventListener('click', function (){
+            socket.emit('user_created_room', {username: "crewdo"}, function(){});
         });
-    })();
+        (function () {
+            socket.on("list_out_rooms", data => {
+                console.log(data);
+            });
 
+            socket.on("a_room_removed", data => {
+                console.log('a room removed:', data);
+            });
+        })();
+    });
 
 </script>
 </body>
