@@ -1,5 +1,6 @@
 const Player  =  require('../Player/Player');
 const Game =  require('../Game/Game');
+const BaseChessMan =  require('../Chess/BaseChessMan');
 
 class Room {
 
@@ -21,7 +22,7 @@ class Room {
 
         if(this.joinAsPlayer(player))
         {
-            this.game = new Game(this.roomId);
+            this.game = new Game(this);
         }
     }
 

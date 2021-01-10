@@ -2,11 +2,14 @@ const BaseChessMan = require( './BaseChessMan');
 
 class Advisor extends BaseChessMan {
 
-    constructor() {
-        super();
+    constructor({color, initPos}) {
+        super({color, initPos});
         this.type = 'A';
-        this.defaultPositions = [{x: 3, y: 0}, {x: 5, y: 0}, {x: 3, y: 9}, {x: 5, y: 9}];
+    }
 
+    static get defaultPositions()
+    {
+        return [{x: 3, y: 0}, {x: 5, y: 0}, {x: 3, y: 9}, {x: 5, y: 9}];
     }
 
     getAvailablePositionsToMove() {

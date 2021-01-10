@@ -2,12 +2,15 @@ const BaseChessMan = require( './BaseChessMan');
 
 class King extends BaseChessMan {
 
-    constructor() {
-        super();
+    constructor({color, initPos}) {
+        super({color, initPos});
         this.type = 'K';
-        this.defaultPositions = [{x: 4, y: 0}, {x: 4, y: 9}];
     }
 
+    static get defaultPositions()
+    {
+        return  [{x: 4, y: 0}, {x: 4, y: 9}];
+    }
     getAvailablePositionsToMove(chessMen) {
 
     }

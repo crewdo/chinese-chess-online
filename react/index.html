@@ -1,0 +1,25 @@
+<html>
+<body>
+<div id="app">
+    Thudo
+</div>
+
+<script  src="./js/socket-io.js"></script>
+<script>
+
+    var socket = io();
+
+    socket.emit('user_online');
+    socket.emit('user_created_room', {username: "crewdo"}, function(){})
+
+
+    (function () {
+        socket.on("list_out_rooms", data => {
+            console.log(data);
+        });
+    })();
+
+
+</script>
+</body>
+</html>

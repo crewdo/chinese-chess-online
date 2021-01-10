@@ -2,13 +2,18 @@ const BaseChessMan =  require("./BaseChessMan");
 
 class Pawn extends BaseChessMan {
 
-    constructor() {
-        super();
+    constructor({color, initPos}) {
+        super({color, initPos});
         this.type = 'P';
-        this.defaultPositions = [];
     }
 
-    getAvailablePositionsToMove(chessMen) {
+    static get defaultPositions()
+    {
+        return [];
+    }
+
+    getAvailablePositionsToMove(chessMen)
+    {
     }
 
 }

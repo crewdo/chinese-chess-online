@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
 const Hall = require("./handlerRequest/Hall");
 
@@ -11,6 +11,9 @@ const socket = io(server);
 
 let TheHall = new Hall(socket);
 TheHall.reception();
+
+app.use(bodyParser.json());
+app.use(express.static(__dirname + "/react"));
 
 server.listen(port, () =>{
     console.log("Connected to port: " + port)
