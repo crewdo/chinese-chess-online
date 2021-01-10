@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 const Hall = require("./handlerRequest/Hall");
 
@@ -13,5 +13,5 @@ let TheHall = new Hall(socket);
 TheHall.reception();
 
 server.listen(port, () =>{
-    console.log("Connected to port: "+ port)
+    console.log("Connected to port: " + port)
 });

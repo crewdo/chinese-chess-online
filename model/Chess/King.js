@@ -1,4 +1,4 @@
-import BaseChessMan from './BaseChessMan';
+const BaseChessMan = require( './BaseChessMan');
 
 class King extends BaseChessMan {
 

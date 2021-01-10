@@ -1,5 +1,5 @@
-import BaseChessMan from '../Chess/BaseChessMan';
-import ChessService from '../Service/ChessService';
+const BaseChessMan = require('../Chess/BaseChessMan');
+const ChessService = require('../Service/ChessService');
 
 class Game {
 

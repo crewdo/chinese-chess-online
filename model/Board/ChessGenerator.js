@@ -1,10 +1,10 @@
-import Cannon from '../Chess/Cannon';
-import King from '../Chess/King';
-import Pawn from '../Chess/Pawn';
-import Advisor from '../Chess/Advisor';
-import Chariot from '../Chess/Chariot';
-import Elephant from '../Chess/Elephant';
-import Horse from '../Chess/Horse';
+const Cannon =  require('../Chess/Cannon');
+const King =  require('../Chess/King');
+const Pawn =  require('../Chess/Pawn');
+const Advisor =  require('../Chess/Advisor');
+const Chariot =  require('../Chess/Chariot');
+const Elephant =  require('../Chess/Elephant');
+const Horse =  require('../Chess/Horse');
 
 class ChessGenerator {
 

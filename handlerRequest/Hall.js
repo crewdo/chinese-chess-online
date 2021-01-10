@@ -1,5 +1,5 @@
-import Player from "../model/Player/Player";
-import Visitor from "../model/Player/Visitor";
+const Player =  require("../model/Player/Player");
+const Visitor =  require("../model/Player/Visitor");
 
 const Room = require("../model/Room/Room");
 const BaseChessMan = require("../model/Chess/BaseChessMan");
