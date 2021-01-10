@@ -116,97 +116,78 @@ class BaseChessMan {
         let x = this.position.x;
         let y = this.position.y;
 
-        for (var x_left = x - 1, x_right = x + 1; x_left >= 0, x_right <= ChessService.BOARD_MAX_X; x_left--, x_right++) {
-
-            //If there's no man stand in loop position, then can move on
-            if (x_left >= 0) {
-                if (!ChessService.getChessManByPosition({x: x_left, y: y}, chessMen)) {
+        for (var x_left = x - 1; x_left >= 0; x_left--) {
+            if (!ChessService.getChessManByPosition({x: x_left, y: y}, chessMen)) {
+                positions.push({x: x_left, y: y});
+            } else {
+                if (directlyKill) {
                     positions.push({x: x_left, y: y});
                 } else {
-                    if (directlyKill) {
-                        positions.push({x: x_left, y: y});
-                    } else {
-                        for(let a = x_left - 1; a >= 0; a--)
-                        {
-                            if(ChessService.getChessManByPosition({x: a, y : y}, chessMen)) {
-                                positions.push({x: a, y : y});
-                                break;
-                            }
+                    for (let a = x_left - 1; a >= 0; a--) {
+                        if (ChessService.getChessManByPosition({x: a, y: y}, chessMen)) {
+                            positions.push({x: a, y: y});
+                            break;
                         }
                     }
-
-                    x_left = -1; //To break Left direction
                 }
+                break;
             }
+        }
 
-            if (x_right <= ChessService.BOARD_MAX_X) {
-                //the same for right direction loop
-                if (!ChessService.getChessManByPosition({x: x_right, y: y}, chessMen)) {
-
+        for (var x_right = x + 1; x_right <= ChessService.BOARD_MAX_X; x_right++) {
+            if (!ChessService.getChessManByPosition({x: x_right, y: y}, chessMen)) {
+                positions.push({x: x_right, y: y});
+            } else {
+                if (directlyKill) {
                     positions.push({x: x_right, y: y});
                 } else {
-                    if (directlyKill) {
-                        positions.push({x: x_right, y: y});
-                    } else {
-                        for(let a = x_right + 1; a <= ChessService.BOARD_MAX_X; a++)
-                        {
-                            if(ChessService.getChessManByPosition({x: a, y : y}, chessMen)) {
-                                positions.push({x: a, y : y});
-                                break;
-                            }
+                    for (let a = x_right + 1; a <= ChessService.BOARD_MAX_X; a++) {
+                        if (ChessService.getChessManByPosition({x: a, y: y}, chessMen)) {
+                            positions.push({x: a, y: y});
+                            break;
                         }
                     }
-
-                    x_right = ChessService.BOARD_MAX_X; //To break Left direction
                 }
+                break;
             }
         }
 
         //For Y
-        for (var y_down = y - 1, y_up = y + 1; y_down >= 0, y_up <= ChessService.BOARD_MAX_Y; y_down--, y_up++) {
-            //If there's no man stand in loop position, then can move on
-            if (y_down >= 0) {
-                if (!ChessService.getChessManByPosition({x: x, y: y_down}, chessMen)) {
+        for (var y_down = y - 1; y_down >= 0; y_down--) {
+            if (!ChessService.getChessManByPosition({x: x, y: y_down}, chessMen)) {
+                positions.push({x: x, y: y_down});
+            } else {
+                if (directlyKill) {
                     positions.push({x: x, y: y_down});
                 } else {
-                    if (directlyKill) {
-                        positions.push({x: x, y: y_down});
-                    } else {
-                        for(let a = y_down - 1; a >= 0; a--)
-                        {
-                            if(ChessService.getChessManByPosition({x: x, y : a}, chessMen)) {
-                                positions.push({x: x, y : a});
-                                break;
-                            }
+                    for (let a = y_down - 1; a >= 0; a--) {
+                        if (ChessService.getChessManByPosition({x: x, y: a}, chessMen)) {
+                            positions.push({x: x, y: a});
+                            break;
                         }
                     }
-
-                    y_down = -1; //To break Down direction
                 }
-
-            }
-
-            //the same for right direction loop
-            if (y_up <= ChessService.BOARD_MAX_Y) {
-                if (!ChessService.getChessManByPosition({x: x, y: y_up}, chessMen)) {
-                    positions.push({x: x, y: y_up});
-                } else {
-                    if (directlyKill) {
-                        positions.push({x: x, y: y_up});
-                    } else {
-                        for(let a = y_up + 1; a <= ChessService.BOARD_MAX_Y; a++)
-                        {
-                            if(ChessService.getChessManByPosition({x: x, y : a}, chessMen)) {
-                                positions.push({x: x, y : a});
-                                break;
-                            }
-                        }
-                    }
-                    y_up = ChessService.BOARD_MAX_Y; //To break Left direction
-                }
+                break;
             }
         }
 
+        for (var y_up = y + 1; y_up <= ChessService.BOARD_MAX_Y; y_up++) {
+            if (!ChessService.getChessManByPosition({x: x, y: y_up}, chessMen)) {
+                positions.push({x: x, y: y_up});
+            } else {
+                if (directlyKill) {
+                    positions.push({x: x, y: y_up});
+                } else {
+                    for (let a = y_up + 1; a <= ChessService.BOARD_MAX_Y; a++) {
+                        if (ChessService.getChessManByPosition({x: x, y: a}, chessMen)) {
+                            positions.push({x: x, y: a});
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+        }
         return positions
     }
 

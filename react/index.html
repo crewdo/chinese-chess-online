@@ -28,7 +28,7 @@
         })
         $(document).on('click', '#requestmove', function (){
             let roomId = $('#rooms').find('.roomItem:first-child').data('room-id');
-            socket.emit('user_request_available_pos', roomId, 21);
+            socket.emit('user_request_available_pos', roomId, 0);
         })
 
         document.getElementById('createRoom').addEventListener('click', function (){
