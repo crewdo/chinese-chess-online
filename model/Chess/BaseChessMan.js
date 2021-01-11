@@ -20,18 +20,21 @@ class BaseChessMan {
     }
 
 
-    move(newPos, chessMen) {
-        if(this.getAvailablePositionsToMoveOrKill(chessMen).some((value) => value === newPos)){
+    move(newPosition, chessMen) {
+        if(this.getAvailablePositionsToMoveOrKill(chessMen).some((position) => position.x === newPosition.x && position.y === newPosition.y)) {
 
-            if(ChessService.getChessManByPosition(newPos, chessMen))
+            if(ChessService.getChessManByPosition(newPosition, chessMen))
             {
                 //process killing
             }
 
-            this.position = newPos;
+            this.position = newPosition;
+
+            return true;
         }
 
-        return true;
+        return false;
+
     }
 
     getName() {
@@ -127,9 +130,11 @@ class BaseChessMan {
                 positions.push({x: x_left, y: y});
             } else {
                 if (directlyKill) {
+                    //Checking killable position for Chariot
                     positions.push({x: x_left, y: y});
                 } else {
-                    for (let a = x_left - 1; a >= 0; a--) {
+                    //Checking killable position for Cannon
+                    for (var a = x_left - 1; a >= 0; a--) {
                         if (ChessService.getChessManByPosition({x: a, y: y}, chessMen)) {
                             positions.push({x: a, y: y});
                             break;
@@ -145,8 +150,10 @@ class BaseChessMan {
                 positions.push({x: x_right, y: y});
             } else {
                 if (directlyKill) {
+                    //Checking killable position for Chariot
                     positions.push({x: x_right, y: y});
                 } else {
+                    //Checking killable position for Cannon
                     for (let a = x_right + 1; a <= ChessService.BOARD_MAX_X; a++) {
                         if (ChessService.getChessManByPosition({x: a, y: y}, chessMen)) {
                             positions.push({x: a, y: y});
