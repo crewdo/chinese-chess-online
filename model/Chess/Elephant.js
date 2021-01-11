@@ -14,7 +14,7 @@ class Elephant extends BaseChessMan {
     }
 
     getAvailablePositionsToMoveOrKill(chessMen) {
-        let positions = [];
+        let positions;
         let allPositions = [];
         let x = this.position.x;
         let y = this.position.y;
