@@ -21,9 +21,15 @@ class BaseChessMan {
 
 
     move(newPos, chessMen) {
-        // if(this.getAvailablePositionsToMoveOrKill(chessMen).some((value) => value === newPos)){
-        //     this.position = newPos;
-        // }
+        if(this.getAvailablePositionsToMoveOrKill(chessMen).some((value) => value === newPos)){
+
+            if(ChessService.getChessManByPosition(newPos, chessMen))
+            {
+                //process killing
+            }
+
+            this.position = newPos;
+        }
 
         return true;
     }
@@ -134,7 +140,7 @@ class BaseChessMan {
             }
         }
 
-        for (var x_right = x + 1; x_right <= ChessService.BOARD_MAX_X; x_right++) {
+        for (let x_right = x + 1; x_right <= ChessService.BOARD_MAX_X; x_right++) {
             if (!ChessService.getChessManByPosition({x: x_right, y: y}, chessMen)) {
                 positions.push({x: x_right, y: y});
             } else {
@@ -153,7 +159,7 @@ class BaseChessMan {
         }
 
         //For Y
-        for (var y_down = y - 1; y_down >= 0; y_down--) {
+        for (let y_down = y - 1; y_down >= 0; y_down--) {
             if (!ChessService.getChessManByPosition({x: x, y: y_down}, chessMen)) {
                 positions.push({x: x, y: y_down});
             } else {
@@ -171,7 +177,7 @@ class BaseChessMan {
             }
         }
 
-        for (var y_up = y + 1; y_up <= ChessService.BOARD_MAX_Y; y_up++) {
+        for (let y_up = y + 1; y_up <= ChessService.BOARD_MAX_Y; y_up++) {
             if (!ChessService.getChessManByPosition({x: x, y: y_up}, chessMen)) {
                 positions.push({x: x, y: y_up});
             } else {

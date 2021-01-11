@@ -20,6 +20,22 @@ class ChessService {
         return 5;
     }
 
+    static get PALACE_MAX_LEFT_X() {
+        return 3;
+    }
+
+    static get PALACE_MAX_RIGHT_X() {
+        return 5;
+    }
+
+    static get PALACE_MAX_RED_Y() {
+        return 2;
+    }
+
+    static get PALACE_MAX_BLACK_Y() {
+        return 7;
+    }
+
     getChessManById(id, player)
     {
         for(let i = 0; i < this.chessMen.length; i++)
@@ -48,7 +64,7 @@ class ChessService {
 
     getAvailablePositionToMoveByChessManId(chessManId, player)
     {
-        var chessMan = this.getChessManById(chessManId, player);
+        let chessMan = this.getChessManById(chessManId, player);
 
         if(chessMan)
         {
