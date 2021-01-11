@@ -65,6 +65,9 @@
              socket.on("a_user_left", data => {
                 console.log('a_user_left', data);
             });
+             socket.on("new_game_available", data => {
+                console.log('new_game_available', data);
+            });
 
         })();
     });

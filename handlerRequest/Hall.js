@@ -33,7 +33,7 @@ class Hall {
                     //emit to all online users that there's new room has just created.
                     self.emitListOutRooms();
                     self.socketGlobal.to(`${socket.id}`).emit("chess_men_data", {chessMen: self.roomList[newRoomId].game.chessService.chessMen});
-
+                    self.emitNewGameForHost(socket.id)
                 }
             });
 
