@@ -24,7 +24,6 @@ class Pawn extends BaseChessMan {
             if(y < ChessService.BOARD_MAX_Y)
             {
                 positions.push({x : x, y: y + 1})
-                console.log(positions)
             }
 
             if(y > ChessService.BOARD_RED_RIVER_Y)

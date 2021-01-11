@@ -142,6 +142,13 @@ class BaseChessMan {
             }
         }
 
+        //Checking King face to face
+        let enemyKing = chessMen.find(value => value.type === 'K' && value.color !== this.color);
+
+        if(this.kingFaced(ownerKing, enemyKing, chessMen)) {
+            isChecked = true;
+        }
+
         this.position = recoveryPosition;
 
         return isChecked;
@@ -229,6 +236,21 @@ class BaseChessMan {
             }
         }
         return positions
+    }
+
+    kingFaced (stKing, ndKing, chessMen) {
+
+        if(stKing.position.x !== ndKing.position.x) return false;
+        let redKing = stKing.color === BaseChessMan.RED_TYPE ? stKing : ndKing;
+        let blackKing = stKing.color === BaseChessMan.BLACK_TYPE ? stKing : ndKing;
+
+        for(let i = redKing.position.y + 1; i < blackKing.position.y; i++) {
+            if(ChessService.getChessManByPosition({x : redKing.position.x, y: i}, chessMen)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
