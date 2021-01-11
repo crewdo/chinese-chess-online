@@ -167,16 +167,20 @@ class Hall {
 
             });
 
-            socket.on('user_request_move', (roomId, newPos, chessManId) => {
+            socket.on('user_move', (roomId, newPosition, chessManId) => {
 
                 let playerInspector = self.guard(roomId, socket.id)
                 if (!playerInspector) return;
 
-                //crewtodo: process moving
-                //check pos validity
-                //check move by get availabe pos
-                //process moving
-                self.socketGlobal.to(`${currentRoom.roomId}`).emit("user_moved", {newPos, chessManId});
+                let movingStatus = self.roomList[roomId].game.chessService.requestMove(newPosition, chessManId, playerInspector);
+
+                if(movingStatus)
+                {
+                    self.socketGlobal.to(`${roomId}`).emit("user_moved", {newPosition, chessManId});
+                }
+                else {
+                    self.socketGlobal.to(`${socket.id}`).emit("invalid_move");
+                }
             });
 
         });

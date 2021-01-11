@@ -20,12 +20,24 @@ class BaseChessMan {
     }
 
 
-    move(newPosition, chessMen) {
+    moveOrKill(newPosition, chessMen) {
         if(this.getAvailablePositionsToMoveOrKill(chessMen).some((position) => position.x === newPosition.x && position.y === newPosition.y)) {
 
             if(ChessService.getChessManByPosition(newPosition, chessMen))
             {
                 //process killing
+                let indexKilled = 32;
+
+                for(let i = 0; i < chessMen.length; i++)
+                {
+                    if(chessMen[i].position.x === newPosition.x && chessMen[i].position.y === newPosition.y)
+                    {
+                        indexKilled = i;
+                        break;
+                    }
+                }
+
+                chessMen.splice(indexKilled, 1);
             }
 
             this.position = newPosition;
@@ -34,7 +46,6 @@ class BaseChessMan {
         }
 
         return false;
-
     }
 
     getName() {

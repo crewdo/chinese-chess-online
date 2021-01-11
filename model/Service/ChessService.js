@@ -8,7 +8,7 @@ class ChessService {
         return 8;
     }
 
-    static get BOARD_MAX_Y(){
+    static get BOARD_MAX_Y() {
         return 9;
     }
 
@@ -16,7 +16,7 @@ class ChessService {
         return 4;
     }
 
-    static get BOARD_BLACK_RIVER_Y(){
+    static get BOARD_BLACK_RIVER_Y() {
         return 5;
     }
 
@@ -36,14 +36,10 @@ class ChessService {
         return 7;
     }
 
-    getChessManById(id, player)
-    {
-        for(let i = 0; i < this.chessMen.length; i++)
-        {
-            if(this.chessMen[i].id === id)
-            {
-                if(this.isOwner(this.chessMen[i], player))
-                {
+    getChessManById(id, player) {
+        for (let i = 0; i < this.chessMen.length; i++) {
+            if (this.chessMen[i].id === id) {
+                if (this.isOwner(this.chessMen[i], player)) {
                     return this.chessMen[i];
                 }
 
@@ -52,42 +48,31 @@ class ChessService {
         }
     }
 
-    static getChessManByPosition(position, chessMen)
-    {
+    static getChessManByPosition(position, chessMen) {
         return chessMen.find(value => value.position.x === position.x && value.position.y === position.y);
     }
 
-    isOwner(chessMan, player)
-    {
-        return  chessMan.color === player.colorKeeping;
+    isOwner(chessMan, player) {
+        return chessMan.color === player.colorKeeping;
     }
 
-    getAvailablePositionToMoveByChessManId(chessManId, player)
-    {
+    getAvailablePositionToMoveByChessManId(chessManId, player) {
         let chessMan = this.getChessManById(chessManId, player);
 
-        if(chessMan)
-        {
+        if (chessMan) {
             return chessMan.baseCheckingAndReturnPositions(this.chessMen);
         }
 
         return null;
     }
 
-    requestMove(newPos, id, player)
-    {
-        var chessMan = this.getChessManById(id, player);
+    requestMove(newPos, chessManId, player) {
+        var chessMan = this.getChessManById(chessManId, player);
 
-        if(chessMan)
-        {
-            return chessMan.move(newPos, this.chessMen);
+        if (chessMan) {
+            return chessMan.moveOrKill(newPos, this.chessMen);
         }
         return false;
-    }
-
-    kill(chessManId)
-    {
-
     }
 }
 
