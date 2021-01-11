@@ -13,7 +13,7 @@ let TheHall = new Hall(socket);
 TheHall.reception();
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + "/react"));
+app.use(express.static(__dirname + "/public"));
 
 server.listen(port, () =>{
     console.log("Connected to port: " + port)
