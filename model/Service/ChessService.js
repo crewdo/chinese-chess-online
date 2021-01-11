@@ -91,6 +91,16 @@ class ChessService {
 
         return false;
     }
+
+    checkEnd(playerJustMoved) {
+        let enemyMen = this.chessMen.filter(value => value.color !== playerJustMoved.colorKeeping);
+        for (let i = 0; i < enemyMen.length; i++) {
+           if(this.getAvailablePositionToMoveByChessMan(enemyMen[i]).length > 0) {
+               return false;
+           }
+        }
+        return true;
+    }
 }
 
 module.exports = ChessService;
