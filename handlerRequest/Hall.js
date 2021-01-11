@@ -179,6 +179,13 @@ class Hall {
                     if(self.roomList[roomId].game.chessService.checkEnd(playerInspector)) {
                         self.socketGlobal.to(`${roomId}`).emit("game_over", {winner : playerInspector});
 
+                        if(playerInspector.colorKeeping === BaseChessMan.RED_TYPE) {
+                            self.emitNewGameForHost(playerInspector.id);
+                        }
+                        else {
+                            self.emitNewGameForHost(self.roomList[roomId].game.players.find(value => value.id !== playerInspector.id));
+                        }
+
                         self.roomList[roomId].game.lastWinnerUserId = playerInspector.id;
                         self.roomList[roomId].game.initialize();
 
@@ -197,6 +204,10 @@ class Hall {
             });
 
         });
+    }
+
+    emitNewGameForHost(userId) {
+        this.socketGlobal.to(`${userId}`).emit("new_game_available");
     }
 
     emitListOutRooms()
