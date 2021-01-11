@@ -21,17 +21,15 @@ class BaseChessMan {
 
 
     moveOrKill(newPosition, chessMen) {
-        if(this.getAvailablePositionsToMoveOrKill(chessMen).some((position) => position.x === newPosition.x && position.y === newPosition.y)) {
+        //if new Position in array positionable
+        if (this.getAvailablePositionsToMoveOrKill(chessMen).some((position) => position.x === newPosition.x && position.y === newPosition.y)) {
 
-            if(ChessService.getChessManByPosition(newPosition, chessMen))
-            {
+            if (ChessService.getChessManByPosition(newPosition, chessMen)) {
                 //process killing
                 let indexKilled = 32;
 
-                for(let i = 0; i < chessMen.length; i++)
-                {
-                    if(chessMen[i].position.x === newPosition.x && chessMen[i].position.y === newPosition.y)
-                    {
+                for (let i = 0; i < chessMen.length; i++) {
+                    if (chessMen[i].position.x === newPosition.x && chessMen[i].position.y === newPosition.y) {
                         indexKilled = i;
                         break;
                     }
@@ -103,7 +101,7 @@ class BaseChessMan {
         return [];
     }
 
-    baseCheckingAndReturnPositions(chessMen) {
+    baseCheckingAndReturnPositions(chessMen, kingSafeCheck = true) {
 
         var positions = this.getAvailablePositionsToMoveOrKill(chessMen);
 
@@ -111,7 +109,7 @@ class BaseChessMan {
 
         for (let i = 0; i < positions.length; i++) {
 
-            if (!ChessService.kingSafeCheck(this, positions[i], chessMen)) continue;
+            if (kingSafeCheck && this.kingSafeCheckAfterMove(positions[i], chessMen)) continue;
 
             let allyCheck = ChessService.getChessManByPosition(positions[i], chessMen);
 
@@ -123,6 +121,30 @@ class BaseChessMan {
         }
 
         return returnPositions;
+    }
+
+    kingSafeCheckAfterMove(positionWillMove, chessMen) {
+
+        let recoveryPosition = this.position;
+
+        //attempt move chessMan in chessMen
+        this.position = positionWillMove;
+        let ownerKing = chessMen.find(value => value.type === 'K' && value.color === this.color);
+        let enemyMen = chessMen.filter(value => value.color !== this.color);
+
+        let isChecked = false;
+
+        for (let i = 0; i < enemyMen.length; i++) {
+            let positions = enemyMen[i].baseCheckingAndReturnPositions(chessMen, false);
+            if (positions.some(value => value.x === ownerKing.position.x && value.y === ownerKing.position.y)) {
+                isChecked = true;
+                break;
+            }
+        }
+
+        this.position = recoveryPosition;
+
+        return isChecked;
     }
 
     goStraight(chessMen, directlyKill = false) {

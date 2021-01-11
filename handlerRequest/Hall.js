@@ -176,6 +176,14 @@ class Hall {
 
                 if(movingStatus)
                 {
+                    // checkEnd() after each move {
+                    // //getAll position can move of all chess man not turn, if position all empty, then no more can move. then end!
+                    // emit gameEnd()
+                    // restart game, set last winner
+                    //  return
+                    //  }
+                    //
+
                     if(self.roomList[roomId].game.chessService.attackKingCheck(playerInspector)){
                         self.socketGlobal.to(`${roomId}`).emit("king_attacking");
                     }

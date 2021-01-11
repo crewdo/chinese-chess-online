@@ -81,29 +81,16 @@ class ChessService {
 
         let playerChessMen = this.chessMen.filter(value => value.color === player.colorKeeping);
         let enemyKing = this.chessMen.find(value => value.type === 'K' && value.color !== player.colorKeeping);
-        return this.baseKingCheck(playerChessMen, enemyKing);
-    }
 
-    kingSafeCheck(chessMan, positionWillMove, chessMen) {
-
-        let enemyChessMen = chessMen.filter(value => value.color !== chessMan.color);
-        let playerKing = chessMen.find(value => value.type === 'K' && value.color === chessMan.color);
-        return this.baseKingCheck(enemyChessMen, playerKing);
-    }
-
-    baseKingCheck(chessMen, king) {
-
-        for(let i = 0; i < chessMen.length; i++) {
-            let positions = this.getAvailablePositionToMoveByChessMan(chessMen[i]);
-            if(positions.some(value => value.position.x === king.position.x && value.position.y ===  king.position.y)) {
+        for (let i = 0; i < playerChessMen.length; i++) {
+            let positions = this.getAvailablePositionToMoveByChessMan(playerChessMen[i]);
+            if (positions.some(value => value.position.x === enemyKing.position.x && value.position.y === enemyKing.position.y)) {
                 return true;
             }
         }
 
         return false;
     }
-
-
 }
 
 module.exports = ChessService;
