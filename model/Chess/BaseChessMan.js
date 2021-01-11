@@ -111,7 +111,7 @@ class BaseChessMan {
 
         for (let i = 0; i < positions.length; i++) {
 
-            if (!this.kingSafeCheck(positions[i], chessMen)) continue;
+            if (!ChessService.kingSafeCheck(this, positions[i], chessMen)) continue;
 
             let allyCheck = ChessService.getChessManByPosition(positions[i], chessMen);
 
@@ -123,12 +123,6 @@ class BaseChessMan {
         }
 
         return returnPositions;
-    }
-
-    kingSafeCheck(positionWillMove, chessMen) {
-        let chessMan = this;
-        //crewtodo: implement
-        return true;
     }
 
     goStraight(chessMen, directlyKill = false) {

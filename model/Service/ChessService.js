@@ -58,22 +58,52 @@ class ChessService {
 
     getAvailablePositionToMoveByChessManId(chessManId, player) {
         let chessMan = this.getChessManById(chessManId, player);
-
         if (chessMan) {
-            return chessMan.baseCheckingAndReturnPositions(this.chessMen);
+            return this.getAvailablePositionToMoveByChessMan(chessMan);
         }
 
-        return null;
+        return [];
+    }
+
+    getAvailablePositionToMoveByChessMan(chessMan) {
+        return chessMan.baseCheckingAndReturnPositions(this.chessMen);
     }
 
     requestMove(newPos, chessManId, player) {
         var chessMan = this.getChessManById(chessManId, player);
-
         if (chessMan) {
             return chessMan.moveOrKill(newPos, this.chessMen);
         }
         return false;
     }
+
+    attackKingCheck(player) {
+
+        let playerChessMen = this.chessMen.filter(value => value.color === player.colorKeeping);
+        let enemyKing = this.chessMen.find(value => value.type === 'K' && value.color !== player.colorKeeping);
+        return this.baseKingCheck(playerChessMen, enemyKing);
+    }
+
+    kingSafeCheck(chessMan, positionWillMove, chessMen) {
+
+        let enemyChessMen = chessMen.filter(value => value.color !== chessMan.color);
+        let playerKing = chessMen.find(value => value.type === 'K' && value.color === chessMan.color);
+        return this.baseKingCheck(enemyChessMen, playerKing);
+    }
+
+    baseKingCheck(chessMen, king) {
+
+        for(let i = 0; i < chessMen.length; i++) {
+            let positions = this.getAvailablePositionToMoveByChessMan(chessMen[i]);
+            if(positions.some(value => value.position.x === king.position.x && value.position.y ===  king.position.y)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
 }
 
 module.exports = ChessService;

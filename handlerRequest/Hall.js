@@ -176,6 +176,10 @@ class Hall {
 
                 if(movingStatus)
                 {
+                    if(self.roomList[roomId].game.chessService.attackKingCheck(playerInspector)){
+                        self.socketGlobal.to(`${roomId}`).emit("king_attacking");
+                    }
+
                     self.socketGlobal.to(`${roomId}`).emit("user_moved", {newPosition, chessManId});
                 }
                 else {
