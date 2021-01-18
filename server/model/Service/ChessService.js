@@ -2,6 +2,7 @@ class ChessService {
 
     constructor(chessMen) {
         this.chessMen = chessMen;
+        this.logs = [];
     }
 
     static get BOARD_MAX_X() {
@@ -72,7 +73,13 @@ class ChessService {
     requestMove(newPos, chessManId, player) {
         var chessMan = this.getChessManById(chessManId, player);
         if (chessMan) {
-            return chessMan.moveOrKill(newPos, this.chessMen);
+
+            if(chessMan.moveOrKill(newPos, this.chessMen)) {
+
+                this.log(chessMan, newPos.x, newPos.y);
+
+                return true;
+            }
         }
         return false;
     }
@@ -100,6 +107,15 @@ class ChessService {
            }
         }
         return true;
+    }
+
+    log(chessMan, xNew, yNew) {
+        // this.logs.push({type: chessMan.type, positions: {x : xNew, y: yNew}})
+    }
+
+    //crewtodo:
+    filterPositionByRepeatLog(){
+
     }
 }
 

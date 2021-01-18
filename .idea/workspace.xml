@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/_redirects" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Hall/Hall.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/index_bak.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/library/index_bak.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlerRequest/Hall.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/welcome/Hall.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/Lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/library/Lib.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Board/ChessGenerator.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Board/ChessGenerator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Chess/Advisor.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/Advisor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Chess/BaseChessMan.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/BaseChessMan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Chess/Cannon.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/Cannon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Chess/Chariot.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/Chariot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Chess/Elephant.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/Elephant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Chess/Horse.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/Horse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Chess/King.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/King.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Chess/Pawn.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/Pawn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Game/Game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Player/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Player/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Player/Visitor.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Player/Visitor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Room/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Room/Room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Service/ChessService.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Service/ChessService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/logo512.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1mdabgzkl1OzzMRawCwpHixHl5J" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/model/Chess" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
+      <recent name="$PROJECT_DIR$/client" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/react/chinese_chess_online" />
+      <recent name="$PROJECT_DIR$/react" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="" />
+      <created>1609825995400</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609825995400</updated>
+      <workItem from="1609825996589" duration="2098000" />
+      <workItem from="1609830288674" duration="2159000" />
+      <workItem from="1609840303847" duration="11852000" />
+      <workItem from="1609926649237" duration="1951000" />
+      <workItem from="1609988910104" duration="2509000" />
+      <workItem from="1609995165766" duration="5977000" />
+      <workItem from="1610205149221" duration="2617000" />
+      <workItem from="1610263179116" duration="30703000" />
+      <workItem from="1610296693399" duration="6148000" />
+      <workItem from="1610338292593" duration="893000" />
+      <workItem from="1610339507230" duration="1466000" />
+      <workItem from="1610343271994" duration="12631000" />
+      <workItem from="1610361248348" duration="795000" />
+      <workItem from="1610377181059" duration="7731000" />
+      <workItem from="1610410598557" duration="2803000" />
+      <workItem from="1610466442736" duration="1751000" />
+      <workItem from="1610468423135" duration="264000" />
+      <workItem from="1610469014642" duration="1563000" />
+      <workItem from="1610557364509" duration="642000" />
+      <workItem from="1610584703872" duration="101000" />
+      <workItem from="1610584823428" duration="255000" />
+      <workItem from="1610950545006" duration="3282000" />
+    </task>
+    <task id="LOCAL-00001" summary="Crew init">
+      <created>1609827394226</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609827394226</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Base Updating">
+      <created>1609864236189</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609864236189</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Core implementing">
+      <created>1609866280339</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609866280339</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Adding Id to ChessMan">
+      <created>1609893955225</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609893955225</updated>
+    </task>
+    <task id="LOCAL-00005" summary="variable">
+      <created>1609894154551</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609894154551</updated>
+    </task>
+    <task id="LOCAL-00006" summary="moving func">
+      <created>1609894515830</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609894515830</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add service">
+      <created>1609927325106</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609927325106</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Hall Socket Handling">
+      <created>1610003805108</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610003805108</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Hall process">
+      <created>1610263246804</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610263246804</updated>
+    </task>
+    <task id="LOCAL-00010" summary="import to require">
+      <created>1610263771723</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610263771723</updated>
+    </task>
+    <task id="LOCAL-00011" summary="constant changed">
+      <created>1610264515857</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610264515857</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update static">
+      <created>1610267089428</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610267089428</updated>
+    </task>
+    <task id="LOCAL-00013" summary="socket checking">
+      <created>1610267985299</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610267985299</updated>
+    </task>
+    <task id="LOCAL-00014" summary="frontend temp">
+      <created>1610272069109</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610272069109</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Base implement socket">
+      <created>1610274917577</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1610274917577</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Room base">
+      <created>1610276909595</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1610276909595</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update ChessService">
+      <created>1610277176844</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1610277176844</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Positionable for Pawn">
+      <created>1610285346034</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1610285346034</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Straight go">
+      <created>1610291401392</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1610291401392</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Cannon Kill">
+      <created>1610294069310</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1610294069311</updated>
+    </task>
+    <task id="LOCAL-00021" summary="refactor">
+      <created>1610294598265</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1610294598265</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Revert &quot;refactor&quot;&#10;&#10;This reverts commit 4fb709aa">
+      <created>1610295235407</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1610295235407</updated>
+    </task>
+    <task id="LOCAL-00023" summary="refactor">
+      <created>1610297189209</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1610297189209</updated>
+    </task>
+    <task id="LOCAL-00024" summary="King and Advisor Move">
+      <created>1610335761907</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1610335761907</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Elephant move">
+      <created>1610338022672</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1610338022672</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Horse Move">
+      <created>1610339075268</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1610339075268</updated>
+    </task>
+    <task id="LOCAL-00027" summary="moving process">
+      <created>1610340916434</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610340916434</updated>
+    </task>
+    <task id="LOCAL-00028" summary="King Check">
+      <created>1610349836608</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1610349836608</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Core King safe check">
+      <created>1610357348294</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1610357348295</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added King Faced">
+      <created>1610358444794</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1610358444794</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Game end">
+      <created>1610360135059</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1610360135061</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Done Core">
+      <created>1610360825489</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1610360825489</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Emit new game">
+      <created>1610361021400</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1610361021400</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Front-End initialize">
+      <created>1610379390041</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1610379390041</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Moving react">
+      <created>1610411481217</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1610411481217</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="import to require" />
+    <MESSAGE value="constant changed" />
+    <MESSAGE value="Update static" />
+    <MESSAGE value="socket checking" />
+    <MESSAGE value="frontend temp" />
+    <MESSAGE value="Base implement socket" />
+    <MESSAGE value="Room base" />
+    <MESSAGE value="Update ChessService" />
+    <MESSAGE value="Positionable for Pawn" />
+    <MESSAGE value="Straight go" />
+    <MESSAGE value="Cannon Kill" />
+    <MESSAGE value="Revert &quot;refactor&quot;&#10;&#10;This reverts commit 4fb709aa" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="King and Advisor Move" />
+    <MESSAGE value="Elephant move" />
+    <MESSAGE value="Horse Move" />
+    <MESSAGE value="moving process" />
+    <MESSAGE value="King Check" />
+    <MESSAGE value="Core King safe check" />
+    <MESSAGE value="Added King Faced" />
+    <MESSAGE value="Game end" />
+    <MESSAGE value="Done Core" />
+    <MESSAGE value="Emit new game" />
+    <MESSAGE value="Front-End initialize" />
+    <MESSAGE value="Moving react" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving react" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="307" y="23" width="866" height="845" key="CommitChangelistDialog2" timestamp="1610411480884">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state x="307" y="23" width="826" height="845" key="CommitChangelistDialog2/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610361021195" />
+    <state x="307" y="23" width="866" height="845" key="CommitChangelistDialog2/0.23.1440.845@0.23.1440.845" timestamp="1610411480884" />
+    <state x="100" y="123" width="1240" height="645" key="DiffContextDialog" timestamp="1610357936992">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state x="100" y="123" width="1240" height="645" key="DiffContextDialog/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610357936992" />
+    <state x="100" y="123" width="1240" height="645" key="DiffContextDialog/0.23.1440.845@0.23.1440.845" timestamp="1610332861373" />
+    <state x="423" y="155" key="RollbackChangesDialog" timestamp="1610467426942">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state x="423" y="155" key="RollbackChangesDialog/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610335751101" />
+    <state x="423" y="155" key="RollbackChangesDialog/0.23.1440.845@0.23.1440.845" timestamp="1610467426942" />
+    <state x="229" y="84" key="SettingsEditor" timestamp="1609995870801">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state x="229" y="84" key="SettingsEditor/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1609995870801" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1610383974682">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.23.1440.845@0.23.1440.845" timestamp="1610383974682" />
+    <state x="608" y="367" key="VCS.EditChangelistDialog" timestamp="1609926657203">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state x="608" y="367" key="VCS.EditChangelistDialog/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1609926657203" />
+    <state x="320" y="185" key="Vcs.Push.Dialog.v2" timestamp="1610411482408">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state x="320" y="185" key="Vcs.Push.Dialog.v2/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610361022631" />
+    <state x="320" y="185" key="Vcs.Push.Dialog.v2/0.23.1440.845@0.23.1440.845" timestamp="1610411482408" />
+    <state x="100" y="123" width="1240" height="645" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1610467464224">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state x="100" y="123" width="1240" height="645" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.845@0.23.1440.845" timestamp="1610467464224" />
+    <state x="427" y="200" width="623" height="548" key="find.popup" timestamp="1610413863974">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state x="427" y="200" width="586" height="490" key="find.popup/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610359950673" />
+    <state x="427" y="200" width="623" height="548" key="find.popup/0.23.1440.845@0.23.1440.845" timestamp="1610413863974" />
+    <state x="385" y="192" width="670" height="676" key="search.everywhere.popup" timestamp="1610360963357">
+      <screen x="0" y="23" width="1440" height="845" />
+    </state>
+    <state x="385" y="192" width="670" height="676" key="search.everywhere.popup/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610360963357" />
+    <state x="385" y="192" width="670" height="676" key="search.everywhere.popup/0.23.1440.845@0.23.1440.845" timestamp="1610285488874" />
+  </component>
+</project>

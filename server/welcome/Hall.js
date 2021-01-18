@@ -11,7 +11,7 @@ class Hall {
 
     }
 
-    reception() {
+    askReceptionist() {
         let self = this;
 
         this.socketGlobal.on("connection", function (socket) {
