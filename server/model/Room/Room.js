@@ -13,7 +13,7 @@ class Room {
 
     static get ROOM_NAME_PREFIX()
     {
-        return 'chinese_chess_room_id_'
+        return 'chess_'
     }
 
     initialize(id, newUsername)
@@ -52,9 +52,14 @@ class Room {
         return this.players.find(value => value.id === id);
     }
 
+    getVisitor(id)
+    {
+        return this.visitors.find(value => value.id === id);
+    }
+
     static formatRoomData(allRooms) {
         return Object.keys(allRooms).filter(key => key.indexOf(Room.ROOM_NAME_PREFIX) !== -1)
-            .reduce((obj, key) => { obj[key] = {length: allRooms[key].players.length, visitors : allRooms[key].visitors.length}; return obj; }, {});
+            .reduce((obj, key) => { obj[key] = {id: key, length: allRooms[key].players.length, visitors : allRooms[key].visitors.length}; return obj; }, {});
     }
 
     static filterCurrentRoomId(playerRooms) {

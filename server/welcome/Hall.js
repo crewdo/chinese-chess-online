@@ -12,6 +12,7 @@ class Hall {
     }
 
     askReceptionist() {
+
         let self = this;
 
         this.socketGlobal.on("connection", function (socket) {
@@ -54,8 +55,7 @@ class Hall {
                         return e.id !== socket.id;
                     });
 
-                    if(currentRoomPlayerCount === currentRoom.players.length)
-                    {
+                    if (currentRoomPlayerCount === currentRoom.players.length) {
                         //Process Remove Visitor From Room
                         currentRoom.visitors = currentRoom.visitors.filter(e => {
                             return e.id !== socket.id;
@@ -71,9 +71,7 @@ class Hall {
                     if (currentRoom.players.length === 1) {
                         currentRoom.players[0].colorKeeping = BaseChessMan.RED_TYPE;
                         currentRoom.game.gameRestart();
-                    }
-                    else if (currentRoom.players.length === 0)
-                    {
+                    } else if (currentRoom.players.length === 0) {
                         //emit a room has just removed
                         self.socketGlobal.emit('a_room_removed', {roomId: currentRoom.roomId});
                         //this also remove game refer to room.
@@ -105,26 +103,23 @@ class Hall {
                             })
 
                             self.roomList[roomId].joinAsPlayer(player);
-
-                            callback('Joined as Player');
-
                             joinType = 'player';
+
                         } else {
                             var visitor = new Visitor({id: socket.id, name: username})
                             self.roomList[roomId].joinAsVisitor(visitor);
-                            callback('Joined as Visitor');
                         }
+                        callback(200);
 
                         //let people know that length of each room list has changed
                         self.emitListOutRooms();
 
                         //notice member that a user has joined
                         self.socketGlobal.to(`${roomId}`).emit("a_user_joined", {joinType: joinType});
-
-                        //notice member current game chessMen data
-                        self.socketGlobal.to(`${socket.id}`).emit("chess_men_data", {chessMen: self.roomList[roomId].game.chessService.chessMen});
-
                     }
+                }
+                else {
+                    callback(404);
                 }
 
             });
@@ -133,9 +128,21 @@ class Hall {
                 socket.disconnect();
             });
 
+            socket.on('user_request_chess_men_data', (roomId, callback) => {
+                //check room privately if needed here
+                if (self.checkingRoomExisting(roomId)) {
+                    let room = self.roomList[roomId];
+                    let player = room.getPlayer(socket.id);
+                    let visitor = room.getVisitor(socket.id);
+
+                    if(typeof player !== "undefined" || typeof visitor !== "undefined") {
+                        callback({chessMen: room.game.chessService.chessMen});
+                    }
+                }
+            });
+
             socket.on("user_request_start", (roomId) => {
                 if (self.checkingRoomExisting(roomId)) {
-
 
                     let room = self.roomList[roomId];
                     let host = room.getPlayer(socket.id);
@@ -174,15 +181,13 @@ class Hall {
 
                 let movingStatus = self.roomList[roomId].game.chessService.requestMove(newPosition, chessManId, playerInspector);
 
-                if(movingStatus)
-                {
-                    if(self.roomList[roomId].game.chessService.checkEnd(playerInspector)) {
-                        self.socketGlobal.to(`${roomId}`).emit("game_over", {winner : playerInspector});
+                if (movingStatus) {
+                    if (self.roomList[roomId].game.chessService.checkEnd(playerInspector)) {
+                        self.socketGlobal.to(`${roomId}`).emit("game_over", {winner: playerInspector});
 
-                        if(playerInspector.colorKeeping === BaseChessMan.RED_TYPE) {
+                        if (playerInspector.colorKeeping === BaseChessMan.RED_TYPE) {
                             self.emitNewGameForHost(playerInspector.id);
-                        }
-                        else {
+                        } else {
                             self.emitNewGameForHost(self.roomList[roomId].game.players.find(value => value.id !== playerInspector.id));
                         }
 
@@ -192,13 +197,12 @@ class Hall {
                         return;
                     }
 
-                    if(self.roomList[roomId].game.chessService.attackKingCheck(playerInspector)){
+                    if (self.roomList[roomId].game.chessService.attackKingCheck(playerInspector)) {
                         self.socketGlobal.to(`${roomId}`).emit("king_attacking");
                     }
 
                     self.socketGlobal.to(`${roomId}`).emit("user_moved", {newPosition, chessManId});
-                }
-                else {
+                } else {
                     self.socketGlobal.to(`${socket.id}`).emit("invalid_move");
                 }
             });
@@ -210,15 +214,14 @@ class Hall {
         this.socketGlobal.to(`${userId}`).emit("new_game_available");
     }
 
-    emitListOutRooms()
-    {
+    emitListOutRooms() {
         this.socketGlobal.emit('list_out_rooms', Room.formatRoomData(this.roomList));
     }
 
     guard(roomId, playerId) {
         if (this.checkingRoomExisting(roomId)) {
 
-            if(this.roomList[roomId].game.state === 0) return;
+            if (this.roomList[roomId].game.state === 0) return;
 
             let player = this.roomList[roomId].getPlayer(playerId);
 
