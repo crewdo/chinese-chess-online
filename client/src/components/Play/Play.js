@@ -13,7 +13,7 @@ export const Play = ({location}) => {
 
         const {id} = queryString.parse(location.search);
 
-        if (typeof id == "undefined" && !id) {
+        if (typeof id == "undefined" || !id) {
             history.push("/rooms")
         } else {
             socket.emit('user_joined', id, name, (code) => {

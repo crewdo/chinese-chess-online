@@ -15,6 +15,10 @@ export const RoomList = () => {
         socket.on('list_out_rooms', rooms => {
             setRoomList(rooms);
         });
+
+        return () => {
+            socket.off('list_out_rooms');
+        }
     }, [])
 
     useEffect(() => {
