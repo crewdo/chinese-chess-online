@@ -42,6 +42,16 @@ export const Room = ({location}) => {
 
     }, [chessMen])
 
+    useEffect(() => {
+
+        socket.on('game_over', data => {
+            alert('Winner:' + data.winner.name)
+        })
+
+        return () => socket.off('game_over');
+
+    }, [])
+
 
     const handleStart = useCallback(() => {
         socket.emit('user_request_start', id, (msg) => {

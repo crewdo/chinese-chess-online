@@ -31,13 +31,8 @@
   <component name="ChangeListManager">
     <list default="true" id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Board.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Board.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Board.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChessMan.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChessMan.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Play/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Play/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/Chess/Advisor.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/Advisor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/Game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Game/Game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/welcome/Hall.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/welcome/Hall.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +123,7 @@
       <workItem from="1611072463697" duration="1383000" />
       <workItem from="1611149491019" duration="1873000" />
       <workItem from="1611199849774" duration="869000" />
-      <workItem from="1611306005044" duration="20450000" />
+      <workItem from="1611306005044" duration="21405000" />
     </task>
     <task id="LOCAL-00001" summary="Crew init">
       <created>1609827394226</created>
@@ -417,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611377117983</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Advisor fix">
+      <created>1611378631379</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1611378631379</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +452,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Room base" />
     <MESSAGE value="Update ChessService" />
     <MESSAGE value="Positionable for Pawn" />
     <MESSAGE value="Straight go" />
@@ -475,6 +476,7 @@
     <MESSAGE value="Core Done" />
     <MESSAGE value="Pawn bug fix" />
     <MESSAGE value="rotating function" />
-    <option name="LAST_COMMIT_MESSAGE" value="rotating function" />
+    <MESSAGE value="Advisor fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Advisor fix" />
   </component>
 </project>

@@ -43,7 +43,7 @@ class Game {
 
     start() {
 
-        if(this.state !== 0 || this.room.players.length !== 2 || !this.turnOfUserId) return false;
+        if(this.state !== 0 || this.room.players.length !== 2) return false;
 
         this.state = Game.STATE_PLAYING;
         ++ this.step;

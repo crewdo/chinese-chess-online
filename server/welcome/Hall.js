@@ -158,8 +158,10 @@ class Hall {
                         if (room.players.length === 2) {
                             if (room.game.start()) {
                                 self.socketGlobal.to(`${roomId}`).emit("user_turned",
-                                    {step: room.game.step, user_turned: room.game.turnOfUserId}
+                                    {step: room.game.step}
                                 );
+                                self.socketGlobal.to(`${roomId}`).emit("chess_men_data", {chessMen: room.game.chessService.chessMen});
+
                             }
                         } else {
                             callback("too_least_player_to_start");
@@ -193,6 +195,10 @@ class Hall {
 
                     game.turnOfUserId = enemyPlayer.id;
 
+                    //if valid move, inform new chessMen, no matter what game end status is.
+                    self.socketGlobal.to(`${roomId}`).emit("user_moved", {newPosition, chessManId});
+                    self.socketGlobal.to(`${roomId}`).emit("chess_men_data", {chessMen: game.chessService.chessMen});
+
                     if (game.chessService.checkEnd(playerInspector)) {
                         self.socketGlobal.to(`${roomId}`).emit("game_over", {winner: playerInspector});
 
@@ -213,9 +219,6 @@ class Hall {
                     if (game.chessService.attackKingCheck(playerInspector)) {
                         self.socketGlobal.to(`${roomId}`).emit("king_attacking");
                     }
-
-                    self.socketGlobal.to(`${roomId}`).emit("user_moved", {newPosition, chessManId});
-                    self.socketGlobal.to(`${roomId}`).emit("chess_men_data", {chessMen: game.chessService.chessMen});
 
                 } else {
                     self.socketGlobal.to(`${socket.id}`).emit("invalid_move");
