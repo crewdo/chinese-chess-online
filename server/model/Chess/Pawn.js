@@ -44,7 +44,7 @@ class Pawn extends BaseChessMan {
                 positions.push({x : x, y: y - 1})
             }
 
-            if(y > ChessService.BOARD_BLACK_RIVER_Y)
+            if(y < ChessService.BOARD_BLACK_RIVER_Y)
             {
                 if( x > 0) {
                     positions.push({x : x - 1, y: y})
