@@ -30,17 +30,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Board.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Board.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/ChessMan.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Play/Play.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Play/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/Chess/BaseChessMan.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/BaseChessMan.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/Service/ChessService.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Service/ChessService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Board.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Board.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChessMan.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChessMan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Play/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Play/Room.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/welcome/Hall.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/welcome/Hall.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +126,7 @@
       <workItem from="1611072463697" duration="1383000" />
       <workItem from="1611149491019" duration="1873000" />
       <workItem from="1611199849774" duration="869000" />
-      <workItem from="1611306005044" duration="16907000" />
+      <workItem from="1611306005044" duration="19338000" />
     </task>
     <task id="LOCAL-00001" summary="Crew init">
       <created>1609827394226</created>
@@ -399,7 +394,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611196780688</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Core Done">
+      <created>1611374516058</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1611374516058</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Pawn bug fix">
+      <created>1611374807263</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1611374807263</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,8 +441,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="socket checking" />
-    <MESSAGE value="frontend temp" />
     <MESSAGE value="Base implement socket" />
     <MESSAGE value="Room base" />
     <MESSAGE value="Update ChessService" />
@@ -457,6 +464,8 @@
     <MESSAGE value="Separate folder &amp; init client" />
     <MESSAGE value="Adding components" />
     <MESSAGE value="unmount to play components" />
-    <option name="LAST_COMMIT_MESSAGE" value="unmount to play components" />
+    <MESSAGE value="Core Done" />
+    <MESSAGE value="Pawn bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pawn bug fix" />
   </component>
 </project>

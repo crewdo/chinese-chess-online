@@ -14,17 +14,22 @@ export const Room = ({location}) => {
 
     const {id} = queryString.parse(location.search);
 
+    const [isHost, setIsHost] = useState(false);
+
     useEffect(() => {
         if (typeof id == "undefined" || !id) {
             history.push("/rooms")
         } else {
-            socket.emit('user_joined', id, name, (code) => {
-                if (code === 404) {
+            socket.emit('user_joined', id, name, (data) => {
+                if (data.code === 404) {
                     history.push("/rooms")
+                }
+                else{
+                    setIsHost(data.isHost)
                 }
             });
         }
-    }, [location.search, name, history])
+    }, [location.search, name, history, isHost])
 
     const [chessMen, setChessMen] = useState([]);
 
@@ -48,7 +53,7 @@ export const Room = ({location}) => {
         <div className="roomContainer">
             <div className="roomBodyContainer">
                 <button onClick={handleStart}>Start</button>
-                <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} chessMen={chessMen}/>
+                <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} chessMen={chessMen} isHost={isHost}/>
             </div>
         </div>
     );

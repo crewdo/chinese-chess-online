@@ -90,12 +90,15 @@ class Hall {
 
                 if (typeof socket.adapter.rooms[roomId] !== "undefined" && typeof self.roomList[roomId] !== "undefined") {
 
-                    if (Object.keys(socket.rooms).length === 1) {
+                    if(self.roomList[roomId].players[0].id === socket.id) {
+                        callback({code: 200, isHost: true});
+                        return;
+                    }
 
+                    if (Object.keys(socket.rooms).length === 1) {
                         socket.join(roomId);
 
                         if (self.roomList[roomId].game.state === 0 && self.roomList[roomId].players.length === 1) {
-
                             var player = new Player({
                                 id: socket.id,
                                 colorKeeping: BaseChessMan.BLACK_TYPE,
@@ -109,7 +112,7 @@ class Hall {
                             var visitor = new Visitor({id: socket.id, name: username})
                             self.roomList[roomId].joinAsVisitor(visitor);
                         }
-                        callback(200);
+                        callback({code: 200, isHost: false});
 
                         //let people know that length of each room list has changed
                         self.emitListOutRooms();
@@ -120,7 +123,7 @@ class Hall {
                     }
                 }
                 else {
-                    callback(404);
+                    callback({code: 404, isHost: false});
                 }
 
             });
