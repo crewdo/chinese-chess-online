@@ -123,16 +123,14 @@ export const Room = ({location}) => {
 
     const [boardWidth, boardHeight] = useWindowWidth();
 
-    const offset = 80;
+    const pixelRate = boardWidth / 8 + 50;
 
     return (
         <div className="roomContainer">
             <div className="roomBodyContainer">
-                {isHost && gameState === 0 && <button onClick={handleStart}>Start</button>}
-                <div className="boardWrapper">
-                    <Board roomId={id} boardWidth={boardWidth - offset} boardHeight={boardHeight - offset} pixelRate={(boardWidth - offset) / 9} chessMen={chessMen}
-                           rotate={rotate}/>
-                </div>
+                {isHost && gameState === 0 && <button className="buttonStart" style={{position: 'absolute', top: boardWidth / 2 + 10}} onClick={handleStart}>START</button>}
+                <Board roomId={id} boardWidth={boardWidth - pixelRate} boardHeight={boardHeight - pixelRate} pixelRate={(boardWidth - pixelRate) / 8} chessMen={chessMen}
+                       rotate={rotate}/>
             </div>
         </div>
     );

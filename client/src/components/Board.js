@@ -23,9 +23,9 @@ export const Board = ({roomId, boardWidth, boardHeight, pixelRate, chessMen, rot
     }, []);
 
     return (
-        <div className="boardContainer" style={{width: boardWidth + 'px', height: boardHeight + 'px'}}>
+        <div className="boardContainer" style={{marginTop: pixelRate / 2 + 'px' , width: boardWidth + 'px', height: boardHeight + 'px'}}>
             {chessMen.map((chessMan, i) => {
-                return <div key={i}>
+                return <div key={chessMan.id}>
                     <div className="chessManContainer">
                         <ChessMan rotate={rotate} pixelRate={pixelRate} chessMan={chessMan} onClick={handleGetPosition}></ChessMan>
                     </div>

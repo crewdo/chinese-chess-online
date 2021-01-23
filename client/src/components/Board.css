@@ -1,25 +1,24 @@
 .boardContainer {
     position: relative;
     margin: 0 auto;
-}
-
-.boardWrapper {
-    padding: 15px;
-    background-image: url(/img/chess_1/board.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: calc(100% - 30px);
+    z-index: 1;
+    background-image: url(/img/chess_1/board_cool.png);
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .chessMan{
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 1px;
+    height: 1px;
     border-radius: 50%;
     text-align: center;
-    line-height: 40px;
     cursor: pointer;
+}
+
+.chessMan:not(.availablePositionItem) {
+    transition:all 0.4s linear;
 }
 
 body {
@@ -32,4 +31,31 @@ body {
     background-image: url(/img/chess_1/on.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 10px;
+}
+
+.availablePositionItem.rotate {
+    margin-left:  0;
+}
+
+.buttonStart{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 30px;
+    z-index: 10;
+    background: #d0a262;
+    border: 2px solid #c18f57;
+    border-radius: 200px;
+    text-align: center;
+    width: 100px;
+    font-weight: bold;
+    color: #433721;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.buttonStart:focus {
+    outline: none;
 }
