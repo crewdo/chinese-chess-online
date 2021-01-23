@@ -122,7 +122,7 @@
       <workItem from="1611072463697" duration="1383000" />
       <workItem from="1611149491019" duration="1873000" />
       <workItem from="1611199849774" duration="869000" />
-      <workItem from="1611306005044" duration="23752000" />
+      <workItem from="1611306005044" duration="24495000" />
     </task>
     <task id="LOCAL-00001" summary="Crew init">
       <created>1609827394226</created>
@@ -439,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611381522576</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="disconnecting improve">
+      <created>1611382918941</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1611382918941</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,7 +479,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Cannon Kill" />
     <MESSAGE value="Revert &quot;refactor&quot;&#10;&#10;This reverts commit 4fb709aa" />
     <MESSAGE value="refactor" />
     <MESSAGE value="King and Advisor Move" />
@@ -497,7 +503,8 @@
     <MESSAGE value="Host is allow" />
     <MESSAGE value="User disconnecting handle." />
     <MESSAGE value="Refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
+    <MESSAGE value="disconnecting improve" />
+    <option name="LAST_COMMIT_MESSAGE" value="disconnecting improve" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

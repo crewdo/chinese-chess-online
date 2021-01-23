@@ -162,19 +162,22 @@ class Hall {
                     if (typeof host !== "undefined" && host.colorKeeping === BaseChessMan.RED_TYPE) {
                         if (room.players.length === 2) {
                             if (room.game.start()) {
-                                self.socketGlobal.to(`${roomId}`).emit("user_turned",
-                                    {step: room.game.step}
-                                );
+                                // self.socketGlobal.to(`${roomId}`).emit("user_turned",
+                                //     {step: room.game.step}
+                                // );
                                 self.socketGlobal.to(`${roomId}`).emit("chess_men_data", {chessMen: room.game.chessService.chessMen});
-
+                                callback({code: 200, msg: 'Started'})
                             }
                         } else {
-                            callback("too_least_player_to_start");
+                            callback({code: 403, msg: 'too_least_player_to_start'})
                         }
                     } else {
-                        callback("permission_denied");
+                        callback({code: 403, msg: 'permission_denied'})
                     }
                 }
+
+                callback({code: 404, msg: 'Room Not Found'})
+
             });
 
             socket.on('user_request_available_pos', (roomId, chessManId, acknowledgement) => {

@@ -16,6 +16,7 @@ export const Room = ({location}) => {
 
     const [rotate, setRotate] = useState(false);
     const [isHost, setIsHost] = useState(false);
+    const [gameState, setGameState] = useState(0);
 
     useEffect(() => {
         if (typeof id == "undefined" || !id) {
@@ -54,9 +55,9 @@ export const Room = ({location}) => {
     }, [])
 
     useEffect(() => {
-
         socket.on('a_player_left', () => {
-            setRotate(false)
+            setRotate(false);
+            setGameState(0);
             console.log('a_player_left');
         })
 
@@ -76,15 +77,20 @@ export const Room = ({location}) => {
 
 
     const handleStart = useCallback(() => {
-        socket.emit('user_request_start', id, (msg) => {
-            console.log(msg);
+        socket.emit('user_request_start', id, (rs) => {
+            if(rs.code === 200) {
+                setGameState(1);
+            }
+            else {
+                console.log(rs.msg)
+            }
         });
     });
 
     return (
         <div className="roomContainer">
             <div className="roomBodyContainer">
-                {isHost && <button onClick={handleStart}>Start</button>}
+                {isHost && gameState === 0 && <button onClick={handleStart}>Start</button>}
                 <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} chessMen={chessMen}
                        rotate={rotate}/>
             </div>
