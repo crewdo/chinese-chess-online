@@ -68,6 +68,7 @@ class Hall {
                     if (currentRoom.players.length === 1) {
                         currentRoom.players[0].colorKeeping = BaseChessMan.RED_TYPE;
                         currentRoom.game.gameRestart();
+                        currentRoom.game.turnOfUserId = currentRoom.players[0].id;
 
                         self.socketGlobal.to(`${currentRoom.roomId}`).emit("chess_men_data",
                             {chessMen: self.roomList[currentRoom.roomId].game.chessService.chessMen}
@@ -96,7 +97,7 @@ class Hall {
                 if (typeof socket.adapter.rooms[roomId] !== "undefined" && typeof self.roomList[roomId] !== "undefined") {
 
                     if (self.roomList[roomId].players[0].id === socket.id) {
-                        callback({code: 200, rotate: false});
+                        callback({code: 200, rotate: false, isHost: true});
                         return;
                     }
 
@@ -113,13 +114,13 @@ class Hall {
                             self.roomList[roomId].joinAsPlayer(player);
                             joinType = 'player';
 
-                            callback({code: 200, rotate: true});
+                            callback({code: 200, rotate: true, isHost: false});
 
                         } else {
                             var visitor = new Visitor({id: socket.id, name: username})
                             self.roomList[roomId].joinAsVisitor(visitor);
 
-                            callback({code: 200, rotate: false});
+                            callback({code: 200, rotate: false, isHost: false});
                         }
 
                         //let people know that length of each room list has changed
@@ -130,7 +131,7 @@ class Hall {
                         self.socketGlobal.to(`${socket.id}`).emit("chess_men_data", {chessMen: self.roomList[roomId].game.chessService.chessMen});
                     }
                 } else {
-                    callback({code: 404, rotate: false});
+                    callback({code: 404});
                 }
 
             });
