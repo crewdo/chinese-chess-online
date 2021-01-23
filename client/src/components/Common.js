@@ -1,16 +1,13 @@
-export const getStyleByCoordinate = (isHost, position) => {
+export const getStyleByCoordinate = (rotate, position) => {
 
-    const style = {left: (position.x * 50) + 'px'};
+    const style = {};
 
-    let xCoordinate = 'bottom';
+    let xCoordinate = rotate ? 'right' : 'left';
+    let yCoordinate = rotate ? 'top' : 'bottom';
 
-    if(!isHost) {
-        xCoordinate = 'top';
-    }
-
-    style[xCoordinate] =  (position.y * 50) + 'px';
+    style[xCoordinate] =  (position.x * 50) + 'px';
+    style[yCoordinate] =  (position.y * 50) + 'px';
 
     return style;
-
 }
 

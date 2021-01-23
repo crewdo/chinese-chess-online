@@ -91,7 +91,7 @@ class Hall {
                 if (typeof socket.adapter.rooms[roomId] !== "undefined" && typeof self.roomList[roomId] !== "undefined") {
 
                     if(self.roomList[roomId].players[0].id === socket.id) {
-                        callback({code: 200, isHost: true});
+                        callback({code: 200, rotate: false});
                         return;
                     }
 
@@ -108,11 +108,14 @@ class Hall {
                             self.roomList[roomId].joinAsPlayer(player);
                             joinType = 'player';
 
+                            callback({code: 200, rotate: true});
+
                         } else {
                             var visitor = new Visitor({id: socket.id, name: username})
                             self.roomList[roomId].joinAsVisitor(visitor);
+
+                            callback({code: 200, rotate: false});
                         }
-                        callback({code: 200, isHost: false});
 
                         //let people know that length of each room list has changed
                         self.emitListOutRooms();
@@ -123,7 +126,7 @@ class Hall {
                     }
                 }
                 else {
-                    callback({code: 404, isHost: false});
+                    callback({code: 404, rotate: false});
                 }
 
             });

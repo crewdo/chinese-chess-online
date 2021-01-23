@@ -14,7 +14,7 @@ export const Room = ({location}) => {
 
     const {id} = queryString.parse(location.search);
 
-    const [isHost, setIsHost] = useState(false);
+    const [rotate, setRotate] = useState(false);
 
     useEffect(() => {
         if (typeof id == "undefined" || !id) {
@@ -25,11 +25,11 @@ export const Room = ({location}) => {
                     history.push("/rooms")
                 }
                 else{
-                    setIsHost(data.isHost)
+                    setRotate(data.rotate)
                 }
             });
         }
-    }, [location.search, name, history, isHost])
+    }, [location.search, name, history, rotate])
 
     const [chessMen, setChessMen] = useState([]);
 
@@ -53,7 +53,7 @@ export const Room = ({location}) => {
         <div className="roomContainer">
             <div className="roomBodyContainer">
                 <button onClick={handleStart}>Start</button>
-                <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} chessMen={chessMen} isHost={isHost}/>
+                <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} chessMen={chessMen} rotate={rotate}/>
             </div>
         </div>
     );

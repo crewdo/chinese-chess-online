@@ -13,3 +13,7 @@
     line-height: 40px;
     cursor: pointer;
 }
+
+.chessMan.b{
+    background: #dddddd;
+}

@@ -29,7 +29,7 @@ class Advisor extends BaseChessMan {
             positions.push({x : 4, y: 1});
         }
         else {
-            positions.push({x : 3, y: 8});
+            positions.push({x : 4, y: 8});
         }
 
         return positions;
