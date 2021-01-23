@@ -49,7 +49,7 @@ class Hall {
 
                     let currentRoomPlayerCount = currentRoom.players.length;
 
-                    let leftType = 'player';
+                    let playerLeft = true;
                     //Process Remove Player From Room
                     currentRoom.players = currentRoom.players.filter(e => {
                         return e.id !== socket.id;
@@ -61,25 +61,30 @@ class Hall {
                             return e.id !== socket.id;
                         });
 
-                        leftType = 'visitor';
+                        playerLeft = false;
                     }
-
-                    //To notice people in room aware that a player has just left
-                    self.socketGlobal.to(`${currentRoom.roomId}`).emit("a_user_left", {leftType: leftType});
 
                     //If only one stay in Room, set his color to xRed.
                     if (currentRoom.players.length === 1) {
                         currentRoom.players[0].colorKeeping = BaseChessMan.RED_TYPE;
                         currentRoom.game.gameRestart();
+
+                        self.socketGlobal.to(`${currentRoom.roomId}`).emit("chess_men_data",
+                            {chessMen: self.roomList[currentRoom.roomId].game.chessService.chessMen}
+                            );
+
+                        //To notice people in room aware of a player has just left
+                        if(playerLeft) {
+                            self.socketGlobal.to(`${currentRoom.roomId}`).emit("a_player_left");
+                        }
+
                     } else if (currentRoom.players.length === 0) {
-                        //emit a room has just removed
-                        self.socketGlobal.emit('a_room_removed', {roomId: currentRoom.roomId});
+                        self.socketGlobal.to(`${currentRoom.roomId}`).emit("current_room_removed"); //for visitor
                         //this also remove game refer to room.
                         delete self.roomList[socketInRoom];
                     }
 
                     self.emitListOutRooms();
-
                 }
 
             });

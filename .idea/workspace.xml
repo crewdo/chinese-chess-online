@@ -32,7 +32,6 @@
     <list default="true" id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Play/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Play/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/Game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Game/Game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/welcome/Hall.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/welcome/Hall.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +122,7 @@
       <workItem from="1611072463697" duration="1383000" />
       <workItem from="1611149491019" duration="1873000" />
       <workItem from="1611199849774" duration="869000" />
-      <workItem from="1611306005044" duration="21405000" />
+      <workItem from="1611306005044" duration="22399000" />
     </task>
     <task id="LOCAL-00001" summary="Crew init">
       <created>1609827394226</created>
@@ -419,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611378631379</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Host is allow">
+      <created>1611379852201</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1611379852201</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,7 +458,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Update ChessService" />
     <MESSAGE value="Positionable for Pawn" />
     <MESSAGE value="Straight go" />
     <MESSAGE value="Cannon Kill" />
@@ -477,6 +482,7 @@
     <MESSAGE value="Pawn bug fix" />
     <MESSAGE value="rotating function" />
     <MESSAGE value="Advisor fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Advisor fix" />
+    <MESSAGE value="Host is allow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Host is allow" />
   </component>
 </project>

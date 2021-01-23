@@ -52,6 +52,27 @@ export const Room = ({location}) => {
 
     }, [])
 
+    useEffect(() => {
+
+        socket.on('a_player_left', () => {
+            setRotate(false)
+            alert('a_player_left');
+        })
+
+        return () => socket.off('a_player_left');
+
+    }, [])
+
+    useEffect(() => {
+
+        socket.on('current_room_removed', () => {
+            history.push("/rooms")
+        })
+
+        return () => socket.off('current_room_removed');
+
+    }, [])
+
 
     const handleStart = useCallback(() => {
         socket.emit('user_request_start', id, (msg) => {
