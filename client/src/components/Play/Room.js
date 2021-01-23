@@ -43,13 +43,11 @@ export const Room = ({location}) => {
     }, [chessMen])
 
     useEffect(() => {
-
         socket.on('game_over', data => {
-            alert('Winner:' + data.winner.name)
+            console.log('Winner:' + data.winner.name)
+            setGameState(0);
         })
-
         return () => socket.off('game_over');
-
     }, [])
 
     useEffect(() => {
@@ -85,42 +83,56 @@ export const Room = ({location}) => {
         });
     });
 
-    const [boardWidth, setBoardWidth] = useState(0);
-    const [boardHeight, setBoardHeight] = useState(0);
 
-    const offset = 50;
+    const getInitBoardSize = () => {
 
-    const resizeBoard = () => {
+        let width, height;
         if(window.innerHeight <= window.innerWidth) {
-            setBoardHeight(window.innerHeight);
-            setBoardWidth((boardHeight / 10) * 9);
+            height = window.innerHeight;
+            width = (height / 10) * 9;
         }
         else {
-            setBoardHeight((boardWidth / 9) * 10);
-            setBoardWidth(window.innerWidth);
+            width = window.innerWidth;
+            height = (width / 9) * 10;
+        }
+
+        return {
+            width, height
         }
     }
 
-    useEffect(() => {
+    function useWindowWidth() {
 
-        resizeBoard()
+        const [boardWidth, setBoardWidth] = useState(getInitBoardSize().width);
+        const [boardHeight, setBoardHeight] = useState(getInitBoardSize().height);
 
-        window.addEventListener('resize', () => {
-           resizeBoard()
-        })
+        useEffect(() => {
+            const handleResize = () => {
+                const {width, height} = getInitBoardSize();
+                setBoardWidth(width);
+                setBoardHeight(height);
+            }
+            window.addEventListener('resize', handleResize);
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        });
 
-        return () => {
-            window.removeEventListener('resize', () => {});
-        }
+        return [boardWidth, boardHeight]
+    }
 
-    }, [boardWidth, boardHeight]);
+    const [boardWidth, boardHeight] = useWindowWidth();
+
+    const offset = 80;
 
     return (
         <div className="roomContainer">
             <div className="roomBodyContainer">
                 {isHost && gameState === 0 && <button onClick={handleStart}>Start</button>}
-                <Board roomId={id} boardWidth={boardWidth - offset} boardHeight={boardHeight - offset} pixelRate={(boardWidth - offset) / 9} chessMen={chessMen}
-                       rotate={rotate}/>
+                <div className="boardWrapper">
+                    <Board roomId={id} boardWidth={boardWidth - offset} boardHeight={boardHeight - offset} pixelRate={(boardWidth - offset) / 9} chessMen={chessMen}
+                           rotate={rotate}/>
+                </div>
             </div>
         </div>
     );

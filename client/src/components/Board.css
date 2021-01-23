@@ -1,19 +1,35 @@
 .boardContainer {
-    background: aqua;
     position: relative;
+    margin: 0 auto;
+}
+
+.boardWrapper {
+    padding: 15px;
+    background-image: url(/img/chess_1/board.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: calc(100% - 30px);
+    background-position: center;
 }
 
 .chessMan{
     position: absolute;
     width: 40px;
     height: 40px;
-    background: red;
     border-radius: 50%;
     text-align: center;
     line-height: 40px;
     cursor: pointer;
 }
 
-.chessMan.b{
-    background: #dddddd;
+body {
+    background-image: url(/img/chess_1/bg/bg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.availablePositionItem{
+    background-image: url(/img/chess_1/on.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
