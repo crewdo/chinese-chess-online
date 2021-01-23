@@ -88,8 +88,9 @@ export const Room = ({location}) => {
     const [boardWidth, setBoardWidth] = useState(0);
     const [boardHeight, setBoardHeight] = useState(0);
 
+    const offset = 50;
+
     const resizeBoard = () => {
-        console.log('123')
         if(window.innerHeight <= window.innerWidth) {
             setBoardHeight(window.innerHeight);
             setBoardWidth((boardHeight / 10) * 9);
@@ -101,6 +102,7 @@ export const Room = ({location}) => {
     }
 
     useEffect(() => {
+
         resizeBoard()
 
         window.addEventListener('resize', () => {
@@ -117,7 +119,7 @@ export const Room = ({location}) => {
         <div className="roomContainer">
             <div className="roomBodyContainer">
                 {isHost && gameState === 0 && <button onClick={handleStart}>Start</button>}
-                <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} pixelRate={boardWidth / 9} chessMen={chessMen}
+                <Board roomId={id} boardWidth={boardWidth - offset} boardHeight={boardHeight - offset} pixelRate={(boardWidth - offset) / 9} chessMen={chessMen}
                        rotate={rotate}/>
             </div>
         </div>
