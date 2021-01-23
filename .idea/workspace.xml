@@ -30,16 +30,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Play/Play.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Register/Register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Room/RoomList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/localStore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/socketBase.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Board.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Board.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/ChessMan.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Hall/Hall.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Play/Play.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Play/Room.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/Room/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Room/Room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/Chess/BaseChessMan.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Chess/BaseChessMan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/Service/ChessService.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Service/ChessService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/welcome/Hall.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/welcome/Hall.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +54,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -68,7 +77,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/components" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -77,15 +86,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/model/Chess" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components" />
       <recent name="$PROJECT_DIR$/server" />
       <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/react/chinese_chess_online" />
-      <recent name="$PROJECT_DIR$/react" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/model/Chess" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -120,6 +129,9 @@
       <workItem from="1610950545006" duration="15166000" />
       <workItem from="1611048216935" duration="2878000" />
       <workItem from="1611072463697" duration="1383000" />
+      <workItem from="1611149491019" duration="1873000" />
+      <workItem from="1611199849774" duration="869000" />
+      <workItem from="1611306005044" duration="16907000" />
     </task>
     <task id="LOCAL-00001" summary="Crew init">
       <created>1609827394226</created>
@@ -373,7 +385,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610980630839</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Adding components">
+      <created>1611149530297</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1611149530297</updated>
+    </task>
+    <task id="LOCAL-00038" summary="unmount to play components">
+      <created>1611196780688</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1611196780688</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,8 +432,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="constant changed" />
-    <MESSAGE value="Update static" />
     <MESSAGE value="socket checking" />
     <MESSAGE value="frontend temp" />
     <MESSAGE value="Base implement socket" />
@@ -431,58 +455,8 @@
     <MESSAGE value="Front-End initialize" />
     <MESSAGE value="Moving react" />
     <MESSAGE value="Separate folder &amp; init client" />
-    <option name="LAST_COMMIT_MESSAGE" value="Separate folder &amp; init client" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="474" y="254" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610985710404">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="474" y="254" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.845@0.23.1440.845" timestamp="1610985710404" />
-    <state x="307" y="23" width="866" height="845" key="CommitChangelistDialog2" timestamp="1610980630396">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="307" y="23" width="826" height="845" key="CommitChangelistDialog2/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610361021195" />
-    <state x="307" y="23" width="866" height="845" key="CommitChangelistDialog2/0.23.1440.845@0.23.1440.845" timestamp="1610980630396" />
-    <state x="100" y="123" width="1240" height="645" key="DiffContextDialog" timestamp="1610357936992">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="100" y="123" width="1240" height="645" key="DiffContextDialog/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610357936992" />
-    <state x="100" y="123" width="1240" height="645" key="DiffContextDialog/0.23.1440.845@0.23.1440.845" timestamp="1610332861373" />
-    <state x="423" y="155" key="RollbackChangesDialog" timestamp="1610467426942">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="423" y="155" key="RollbackChangesDialog/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610335751101" />
-    <state x="423" y="155" key="RollbackChangesDialog/0.23.1440.845@0.23.1440.845" timestamp="1610467426942" />
-    <state x="229" y="84" key="SettingsEditor" timestamp="1609995870801">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="229" y="84" key="SettingsEditor/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1609995870801" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1610383974682">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state width="500" height="445" key="SwitcherDM/0.23.1440.845@0.23.1440.845" timestamp="1610383974682" />
-    <state x="608" y="367" key="VCS.EditChangelistDialog" timestamp="1609926657203">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="608" y="367" key="VCS.EditChangelistDialog/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1609926657203" />
-    <state x="320" y="185" key="Vcs.Push.Dialog.v2" timestamp="1610980636065">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="320" y="185" key="Vcs.Push.Dialog.v2/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610361022631" />
-    <state x="320" y="185" key="Vcs.Push.Dialog.v2/0.23.1440.845@0.23.1440.845" timestamp="1610980636065" />
-    <state x="100" y="123" width="1240" height="645" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1610467464224">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="100" y="123" width="1240" height="645" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.845@0.23.1440.845" timestamp="1610467464224" />
-    <state x="427" y="200" width="586" height="490" key="find.popup" timestamp="1611023462849">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="427" y="200" width="586" height="490" key="find.popup/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1611023462849" />
-    <state x="427" y="200" width="623" height="548" key="find.popup/0.23.1440.845@0.23.1440.845" timestamp="1610413863974" />
-    <state x="385" y="192" width="670" height="676" key="search.everywhere.popup" timestamp="1610990335077">
-      <screen x="0" y="23" width="1440" height="845" />
-    </state>
-    <state x="385" y="192" width="670" height="676" key="search.everywhere.popup/-551.-1057.1920.1057/0.23.1440.845@0.23.1440.845" timestamp="1610360963357" />
-    <state x="385" y="192" width="670" height="676" key="search.everywhere.popup/0.23.1440.845@0.23.1440.845" timestamp="1610990335077" />
+    <MESSAGE value="Adding components" />
+    <MESSAGE value="unmount to play components" />
+    <option name="LAST_COMMIT_MESSAGE" value="unmount to play components" />
   </component>
 </project>

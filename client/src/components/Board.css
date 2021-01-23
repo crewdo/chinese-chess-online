@@ -1,0 +1,15 @@
+.boardContainer {
+    background: aqua;
+    position: relative;
+}
+
+.chessMan{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: red;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}

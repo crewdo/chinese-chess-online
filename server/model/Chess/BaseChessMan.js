@@ -24,6 +24,7 @@ class BaseChessMan {
         //if new Position in array positionable
         if (this.getAvailablePositionsToMoveOrKill(chessMen).some((position) => position.x === newPosition.x && position.y === newPosition.y)) {
 
+
             if (ChessService.getChessManByPosition(newPosition, chessMen)) {
                 //process killing
                 let indexKilled = 32;

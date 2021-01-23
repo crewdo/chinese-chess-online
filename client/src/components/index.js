@@ -1,3 +1,3 @@
 export {Register} from './Register/Register'
-export {Play} from './Play/Play'
+export {Room} from './Play/Room'
 export {RoomList} from './Room/RoomList'

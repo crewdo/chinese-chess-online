@@ -116,6 +116,7 @@ class Hall {
 
                         //notice member that a user has joined
                         self.socketGlobal.to(`${roomId}`).emit("a_user_joined", {joinType: joinType});
+                        self.socketGlobal.to(`${socket.id}`).emit("chess_men_data", {chessMen: self.roomList[roomId].game.chessService.chessMen});
                     }
                 }
                 else {
@@ -141,7 +142,7 @@ class Hall {
                 }
             });
 
-            socket.on("user_request_start", (roomId) => {
+            socket.on("user_request_start", (roomId, callback) => {
                 if (self.checkingRoomExisting(roomId)) {
 
                     let room = self.roomList[roomId];
@@ -155,56 +156,66 @@ class Hall {
                                 );
                             }
                         } else {
-                            self.socketGlobal.to(`${socket.id}`).emit("too_least_player_to_start");
+                            callback("too_least_player_to_start");
                         }
                     } else {
-                        self.socketGlobal.to(`${socket.id}`).emit("permission_denied");
+                        callback("permission_denied");
                     }
                 }
-
             });
 
-            socket.on('user_request_available_pos', (roomId, chessManId) => {
+            socket.on('user_request_available_pos', (roomId, chessManId, acknowledgement) => {
 
                 let playerInspector = self.guard(roomId, socket.id)
                 if (!playerInspector) return;
 
-                var positions = self.roomList[roomId].game.chessService.getAvailablePositionToMoveByChessManId(chessManId, playerInspector);
-                self.socketGlobal.to(`${socket.id}`).emit("available_positions", {available_positions: positions});
-
+                let positions = self.roomList[roomId].game.chessService.getAvailablePositionToMoveByChessManId(chessManId, playerInspector);
+                acknowledgement(positions)
             });
 
-            socket.on('user_move', (roomId, newPosition, chessManId) => {
+            socket.on('user_move', (roomId, newPosition, chessManId, acknowledgement) => {
 
                 let playerInspector = self.guard(roomId, socket.id)
                 if (!playerInspector) return;
 
-                let movingStatus = self.roomList[roomId].game.chessService.requestMove(newPosition, chessManId, playerInspector);
+                let game = self.roomList[roomId].game;
+
+                let movingStatus = game.chessService.requestMove(newPosition, chessManId, playerInspector);
 
                 if (movingStatus) {
-                    if (self.roomList[roomId].game.chessService.checkEnd(playerInspector)) {
+                    let enemyPlayer = self.roomList[roomId].players.find(value => value.id !== playerInspector.id);
+
+                    game.turnOfUserId = enemyPlayer.id;
+
+                    if (game.chessService.checkEnd(playerInspector)) {
                         self.socketGlobal.to(`${roomId}`).emit("game_over", {winner: playerInspector});
 
                         if (playerInspector.colorKeeping === BaseChessMan.RED_TYPE) {
                             self.emitNewGameForHost(playerInspector.id);
                         } else {
-                            self.emitNewGameForHost(self.roomList[roomId].game.players.find(value => value.id !== playerInspector.id));
+                            self.emitNewGameForHost(enemyPlayer);
                         }
 
-                        self.roomList[roomId].game.lastWinnerUserId = playerInspector.id;
-                        self.roomList[roomId].game.initialize();
+                        game.lastWinnerUserId = playerInspector.id;
+                        game.initialize();
+
+                        acknowledgement();
 
                         return;
                     }
 
-                    if (self.roomList[roomId].game.chessService.attackKingCheck(playerInspector)) {
+                    if (game.chessService.attackKingCheck(playerInspector)) {
                         self.socketGlobal.to(`${roomId}`).emit("king_attacking");
                     }
 
                     self.socketGlobal.to(`${roomId}`).emit("user_moved", {newPosition, chessManId});
+                    self.socketGlobal.to(`${roomId}`).emit("chess_men_data", {chessMen: game.chessService.chessMen});
+
                 } else {
                     self.socketGlobal.to(`${socket.id}`).emit("invalid_move");
                 }
+
+                acknowledgement()
             });
 
         });

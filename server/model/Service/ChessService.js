@@ -47,6 +47,7 @@ class ChessService {
                 return null;
             }
         }
+        return null;
     }
 
     static getChessManByPosition(position, chessMen) {
@@ -71,7 +72,7 @@ class ChessService {
     }
 
     requestMove(newPos, chessManId, player) {
-        var chessMan = this.getChessManById(chessManId, player);
+        let chessMan = this.getChessManById(chessManId, player);
         if (chessMan) {
 
             if(chessMan.moveOrKill(newPos, this.chessMen)) {
@@ -91,7 +92,7 @@ class ChessService {
 
         for (let i = 0; i < playerChessMen.length; i++) {
             let positions = this.getAvailablePositionToMoveByChessMan(playerChessMen[i]);
-            if (positions.some(value => value.position.x === enemyKing.position.x && value.position.y === enemyKing.position.y)) {
+            if (positions.some(value => value.x === enemyKing.position.x && value.y === enemyKing.position.y)) {
                 return true;
             }
         }
