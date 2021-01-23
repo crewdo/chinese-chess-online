@@ -4,7 +4,7 @@ import {ChessMan} from './ChessMan';
 import {AvailablePosition} from './AvailablePosition';
 import socket from "./socketBase";
 
-export const Board = ({roomId, boardWidth, boardHeight, chessMen, rotate}) => {
+export const Board = ({roomId, boardWidth, boardHeight, pixelRate, chessMen, rotate}) => {
 
     const [availablePositions, setAvailablePositions] = useState({forMan: -1, positions: []});
 
@@ -27,7 +27,7 @@ export const Board = ({roomId, boardWidth, boardHeight, chessMen, rotate}) => {
             {chessMen.map((chessMan, i) => {
                 return <div key={i}>
                     <div className="chessManContainer">
-                        <ChessMan rotate={rotate} chessMan={chessMan} onClick={handleGetPosition}></ChessMan>
+                        <ChessMan rotate={rotate} pixelRate={pixelRate} chessMan={chessMan} onClick={handleGetPosition}></ChessMan>
                     </div>
                 </div>
             })}
@@ -35,7 +35,7 @@ export const Board = ({roomId, boardWidth, boardHeight, chessMen, rotate}) => {
             {availablePositions.positions.map((position, i) => {
                 return <div key={i}>
                     <div className="chessManContainer">
-                        <AvailablePosition rotate={rotate} position={position} forMan={availablePositions.forMan}
+                        <AvailablePosition rotate={rotate} pixelRate={pixelRate} position={position} forMan={availablePositions.forMan}
                                            onClick={handleMove}></AvailablePosition>
                     </div>
                 </div>

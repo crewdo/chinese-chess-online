@@ -31,8 +31,11 @@
   <component name="ChangeListManager">
     <list default="true" id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Board.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Board.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChessMan.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChessMan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Play/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Play/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/welcome/Hall.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/welcome/Hall.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +125,7 @@
       <workItem from="1611072463697" duration="1383000" />
       <workItem from="1611149491019" duration="1873000" />
       <workItem from="1611199849774" duration="869000" />
-      <workItem from="1611306005044" duration="24495000" />
+      <workItem from="1611306005044" duration="27786000" />
     </task>
     <task id="LOCAL-00001" summary="Crew init">
       <created>1609827394226</created>
@@ -446,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611382918941</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Front Game state handle">
+      <created>1611383638312</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1611383638312</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +489,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Revert &quot;refactor&quot;&#10;&#10;This reverts commit 4fb709aa" />
     <MESSAGE value="refactor" />
     <MESSAGE value="King and Advisor Move" />
     <MESSAGE value="Elephant move" />
@@ -504,7 +513,8 @@
     <MESSAGE value="User disconnecting handle." />
     <MESSAGE value="Refactor" />
     <MESSAGE value="disconnecting improve" />
-    <option name="LAST_COMMIT_MESSAGE" value="disconnecting improve" />
+    <MESSAGE value="Front Game state handle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Front Game state handle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

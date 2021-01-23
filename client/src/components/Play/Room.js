@@ -9,8 +9,6 @@ export const Room = ({location}) => {
 
     const name = getItem('chineseChessUserName');
     let history = useHistory();
-    const boardWidth = 450;
-    const boardHeight = 500;
 
     const {id} = queryString.parse(location.search);
 
@@ -73,7 +71,7 @@ export const Room = ({location}) => {
 
         return () => socket.off('current_room_removed');
 
-    }, [])
+    }, [history])
 
 
     const handleStart = useCallback(() => {
@@ -87,11 +85,39 @@ export const Room = ({location}) => {
         });
     });
 
+    const [boardWidth, setBoardWidth] = useState(0);
+    const [boardHeight, setBoardHeight] = useState(0);
+
+    const resizeBoard = () => {
+        console.log('123')
+        if(window.innerHeight <= window.innerWidth) {
+            setBoardHeight(window.innerHeight);
+            setBoardWidth((boardHeight / 10) * 9);
+        }
+        else {
+            setBoardHeight((boardWidth / 9) * 10);
+            setBoardWidth(window.innerWidth);
+        }
+    }
+
+    useEffect(() => {
+        resizeBoard()
+
+        window.addEventListener('resize', () => {
+           resizeBoard()
+        })
+
+        return () => {
+            window.removeEventListener('resize', () => {});
+        }
+
+    }, [boardWidth, boardHeight]);
+
     return (
         <div className="roomContainer">
             <div className="roomBodyContainer">
                 {isHost && gameState === 0 && <button onClick={handleStart}>Start</button>}
-                <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} chessMen={chessMen}
+                <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} pixelRate={boardWidth / 9} chessMen={chessMen}
                        rotate={rotate}/>
             </div>
         </div>
