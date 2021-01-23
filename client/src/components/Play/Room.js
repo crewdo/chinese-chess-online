@@ -23,8 +23,7 @@ export const Room = ({location}) => {
             socket.emit('user_joined', id, name, (data) => {
                 if (data.code === 404) {
                     history.push("/rooms")
-                }
-                else{
+                } else {
                     setRotate(data.rotate)
                 }
             });
@@ -56,7 +55,7 @@ export const Room = ({location}) => {
 
         socket.on('a_player_left', () => {
             setRotate(false)
-            alert('a_player_left');
+            console.log('a_player_left');
         })
 
         return () => socket.off('a_player_left');
@@ -84,7 +83,8 @@ export const Room = ({location}) => {
         <div className="roomContainer">
             <div className="roomBodyContainer">
                 <button onClick={handleStart}>Start</button>
-                <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} chessMen={chessMen} rotate={rotate}/>
+                <Board roomId={id} boardWidth={boardWidth} boardHeight={boardHeight} chessMen={chessMen}
+                       rotate={rotate}/>
             </div>
         </div>
     );

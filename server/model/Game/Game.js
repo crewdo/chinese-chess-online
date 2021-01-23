@@ -1,6 +1,6 @@
 const BaseChessMan = require('../Chess/BaseChessMan');
 const ChessService = require('../Service/ChessService');
-const ChessGenerator =  require("../Board/ChessGenerator");
+const ChessGenerator = require("../Board/ChessGenerator");
 
 class Game {
 
@@ -15,13 +15,11 @@ class Game {
         this.initialize();
     }
 
-    static get STATE_READY()
-    {
+    static get STATE_READY() {
         return 0;
     }
 
-    static get STATE_PLAYING()
-    {
+    static get STATE_PLAYING() {
         return 1;
     }
 
@@ -37,16 +35,16 @@ class Game {
         this.gameRestart();
 
         this.turnOfUserId = this.lastWinnerUserId
-                            ? this.room.players.find(value => value.id !== this.lastWinnerUserId).id
-                            : this.room.players.find(value => value.colorKeeping === BaseChessMan.RED_TYPE).id;
+            ? this.room.players.find(value => value.id !== this.lastWinnerUserId).id
+            : this.room.players.find(value => value.colorKeeping === BaseChessMan.RED_TYPE).id;
     }
 
     start() {
 
-        if(this.state !== 0 || this.room.players.length !== 2) return false;
+        if (this.state !== 0 || this.room.players.length !== 2) return false;
 
         this.state = Game.STATE_PLAYING;
-        ++ this.step;
+        ++this.step;
 
         return true;
     }

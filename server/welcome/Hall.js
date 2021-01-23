@@ -71,10 +71,10 @@ class Hall {
 
                         self.socketGlobal.to(`${currentRoom.roomId}`).emit("chess_men_data",
                             {chessMen: self.roomList[currentRoom.roomId].game.chessService.chessMen}
-                            );
+                        );
 
                         //To notice people in room aware of a player has just left
-                        if(playerLeft) {
+                        if (playerLeft) {
                             self.socketGlobal.to(`${currentRoom.roomId}`).emit("a_player_left");
                         }
 
@@ -95,7 +95,7 @@ class Hall {
 
                 if (typeof socket.adapter.rooms[roomId] !== "undefined" && typeof self.roomList[roomId] !== "undefined") {
 
-                    if(self.roomList[roomId].players[0].id === socket.id) {
+                    if (self.roomList[roomId].players[0].id === socket.id) {
                         callback({code: 200, rotate: false});
                         return;
                     }
@@ -129,8 +129,7 @@ class Hall {
                         self.socketGlobal.to(`${roomId}`).emit("a_user_joined", {joinType: joinType});
                         self.socketGlobal.to(`${socket.id}`).emit("chess_men_data", {chessMen: self.roomList[roomId].game.chessService.chessMen});
                     }
-                }
-                else {
+                } else {
                     callback({code: 404, rotate: false});
                 }
 
@@ -147,7 +146,7 @@ class Hall {
                     let player = room.getPlayer(socket.id);
                     let visitor = room.getVisitor(socket.id);
 
-                    if(typeof player !== "undefined" || typeof visitor !== "undefined") {
+                    if (typeof player !== "undefined" || typeof visitor !== "undefined") {
                         callback({chessMen: room.game.chessService.chessMen});
                     }
                 }

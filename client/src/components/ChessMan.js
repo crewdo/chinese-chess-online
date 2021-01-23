@@ -1,5 +1,5 @@
 import React from 'react';
-import {getStyleByCoordinate} from  './Common';
+import {getStyleByCoordinate} from './Common';
 
 export const ChessMan = ({rotate, chessMan, onClick}) => {
     return (

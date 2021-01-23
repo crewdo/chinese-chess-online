@@ -30,9 +30,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Play/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Play/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/welcome/Hall.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/welcome/Hall.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +120,7 @@
       <workItem from="1611072463697" duration="1383000" />
       <workItem from="1611149491019" duration="1873000" />
       <workItem from="1611199849774" duration="869000" />
-      <workItem from="1611306005044" duration="22399000" />
+      <workItem from="1611306005044" duration="22780000" />
     </task>
     <task id="LOCAL-00001" summary="Crew init">
       <created>1609827394226</created>
@@ -425,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611379852201</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="User disconnecting handle.">
+      <created>1611380877439</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1611380877439</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +463,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Positionable for Pawn" />
     <MESSAGE value="Straight go" />
     <MESSAGE value="Cannon Kill" />
     <MESSAGE value="Revert &quot;refactor&quot;&#10;&#10;This reverts commit 4fb709aa" />
@@ -483,6 +487,18 @@
     <MESSAGE value="rotating function" />
     <MESSAGE value="Advisor fix" />
     <MESSAGE value="Host is allow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Host is allow" />
+    <MESSAGE value="User disconnecting handle." />
+    <option name="LAST_COMMIT_MESSAGE" value="User disconnecting handle." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/components/ChessMan.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
