@@ -10,13 +10,14 @@ export const Room = ({location}) => {
     const name = getItem('chineseChessUserName');
     let history = useHistory();
 
-    const {id} = queryString.parse(location.search);
 
     const [rotate, setRotate] = useState(false);
     const [isHost, setIsHost] = useState(false);
     const [gameState, setGameState] = useState(0);
+    const {id} = queryString.parse(location.search);
 
     useEffect(() => {
+
         if (typeof id == "undefined" || !id) {
             history.push("/rooms")
         } else {
@@ -29,7 +30,7 @@ export const Room = ({location}) => {
                 }
             });
         }
-    }, [location.search, name, history, rotate])
+    }, [location.search, name, history, rotate, id])
 
     const [chessMen, setChessMen] = useState([]);
 

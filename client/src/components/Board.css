@@ -1,3 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+body * {
+    font-family: "Lato", sans-serif !important;
+}
+
+.roomBodyContainer {
+    position: absolute;
+    top: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+
 .boardContainer {
     position: relative;
     margin: 0 auto;
@@ -113,4 +127,68 @@ body {
 .wave-3 {
     -webkit-animation-delay: 2s;
     animation-delay: 2s;
+}
+
+/*ROOM LIST*/
+.createRoom .buttonStart {
+    bottom: unset;
+    top: 40px;
+}
+
+.createRoom .waves {
+    bottom: unset;
+    top: 30px;
+}
+
+.buttonRoom{
+    border: 1px solid #c28f58;
+    border-radius: 4px;
+    background: #d0a2639c;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+p{
+    margin: 0;
+}
+
+.joinButton{
+    cursor: pointer;
+    background: #00c4b3;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 50px;
+    width: 54px;
+}
+
+.joinButton:focus{
+    outline: none;
+}
+
+.roomItemContainer{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.roomItemContainer:first-child{
+    margin-top: 85px;
+}
+
+.roomListContainer{
+    height: 90vh;
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+}
+
+.roomListContainer::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

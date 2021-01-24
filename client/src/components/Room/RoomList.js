@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import socket from "../socketBase";
 import {getItem} from "../localStore"
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
+import {WaveButton} from "../WaveButton";
 
 export const RoomList = () => {
 
@@ -36,18 +37,28 @@ export const RoomList = () => {
 
     const joinRoom = (event) => {
         let roomId = event.target.dataset.id;
-       history.push(`/play?id=${roomId}`);
+        history.push(`/play?id=${roomId}`);
     }
 
     return (
         <div className="registerContainer">
             <div className="registerWrapper">
-                <div className='createRoomButton' onClick={createRoom}>create room</div>
-                {Object.keys(roomList).map(
-                    (key, i) =>
-                        <div key={i}>
-                            <button onClick={joinRoom} data-id={roomList[key].id} className={'button'}>{roomList[key].id} | {roomList[key].length} | {roomList[key].visitors}</button>
-                        </div>)}
+                <WaveButton handler={createRoom} text={`CREATE`} additionalClass={`createRoom`}></WaveButton>
+                <div className="roomListContainer">
+                            {Object.keys(roomList).map(
+                                (key, i) =>
+                                    <div className="roomItemContainer" key={roomList[key].id}>
+                                        <div className={'buttonRoom'}>
+                                            <div>
+                                                <p>ID: {roomList[key].id}</p>
+                                                <p style={{fontSize: 12}}>Players:{roomList[key].length}</p>
+                                                <p style={{fontSize: 12}}>Viewers: {roomList[key].visitors}</p>
+                                            </div>
+                                            <button  onClick={joinRoom} className="joinButton" data-id={roomList[key].id}>Join</button>
+                                        </div>
+                                    </div>)}
+                </div>
+
             </div>
         </div>
     );
