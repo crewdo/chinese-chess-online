@@ -128,8 +128,7 @@ export const Room = ({location}) => {
     return (
         <div className="roomContainer">
             <div className="roomBodyContainer">
-                {isHost && gameState === 0 && <button className="buttonStart" style={{position: 'absolute', top: boardWidth / 2 + 10}} onClick={handleStart}>START</button>}
-                <Board roomId={id} boardWidth={boardWidth - pixelRate} boardHeight={boardHeight - pixelRate} pixelRate={(boardWidth - pixelRate) / 8} chessMen={chessMen}
+                <Board isHost={isHost} gameState={gameState} handleStart={handleStart} roomId={id} boardWidth={boardWidth - pixelRate} boardHeight={boardHeight - pixelRate} pixelRate={(boardWidth - pixelRate) / 8} chessMen={chessMen}
                        rotate={rotate}/>
             </div>
         </div>

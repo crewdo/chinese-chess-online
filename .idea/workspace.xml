@@ -30,12 +30,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/public/img/chess_1/board_cool.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AvailablePosition.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Board.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Board.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Board.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChessMan.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChessMan.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Play/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Play/Room.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,14 +125,7 @@
       <workItem from="1611072463697" duration="1383000" />
       <workItem from="1611149491019" duration="1873000" />
       <workItem from="1611199849774" duration="869000" />
-      <workItem from="1611306005044" duration="38996000" />
-    </task>
-    <task id="LOCAL-00002" summary="Base Updating">
-      <created>1609864236189</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1609864236189</updated>
+      <workItem from="1611306005044" duration="40903000" />
     </task>
     <task id="LOCAL-00003" summary="Core implementing">
       <created>1609866280339</created>
@@ -473,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611398989365</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="UI">
+      <created>1611419201180</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1611419201187</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,7 +503,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Horse Move" />
     <MESSAGE value="moving process" />
     <MESSAGE value="King Check" />
     <MESSAGE value="Core King safe check" />
@@ -531,7 +527,8 @@
     <MESSAGE value="Board Resizing" />
     <MESSAGE value="offset added" />
     <MESSAGE value="Theme implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Theme implementation" />
+    <MESSAGE value="UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
