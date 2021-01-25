@@ -30,14 +30,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64b3a28f-7a2c-4612-9090-66f237d86f3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/public/img/chess_1/board_bor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/img/chess_1/board_border.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/img/chess_1/board_ok.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Register/Register.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Board.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Board.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Board.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Play/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Play/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/welcome/Hall.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/welcome/Hall.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Register/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Room/RoomList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Room/RoomList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,14 +126,7 @@
       <workItem from="1611149491019" duration="1873000" />
       <workItem from="1611199849774" duration="869000" />
       <workItem from="1611306005044" duration="44995000" />
-      <workItem from="1611559902198" duration="4181000" />
-    </task>
-    <task id="LOCAL-00005" summary="variable">
-      <created>1609894154551</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1609894154551</updated>
+      <workItem from="1611559902198" duration="6048000" />
     </task>
     <task id="LOCAL-00006" summary="moving func">
       <created>1609894515830</created>
@@ -475,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611474841487</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="UI Updating">
+      <created>1611566915416</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1611566915420</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +504,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Core King safe check" />
     <MESSAGE value="Added King Faced" />
     <MESSAGE value="Game end" />
     <MESSAGE value="Done Core" />
@@ -533,7 +528,8 @@
     <MESSAGE value="UI" />
     <MESSAGE value="Start Button UI" />
     <MESSAGE value="Basic UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic UI" />
+    <MESSAGE value="UI Updating" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI Updating" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

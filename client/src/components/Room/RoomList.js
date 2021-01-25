@@ -41,8 +41,8 @@ export const RoomList = () => {
     }
 
     return (
-        <div className="registerContainer">
-            <div className="registerWrapper">
+        <div className="">
+            <div className="">
                 <WaveButton handler={createRoom} text={`CREATE`} additionalClass={`createRoom`}></WaveButton>
                 <div className="roomListContainer">
                             {Object.keys(roomList).map(

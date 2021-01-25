@@ -1,0 +1,75 @@
+
+.registerContainer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    align-items: center;
+    background-color: #1A1A1D;
+}
+
+.registerWrapper {
+    width: 20%;
+}
+
+.registerInput {
+    border-radius: 0;
+    padding: 15px 20px;
+    width: 90%;
+}
+
+.heading {
+    color: white;
+    font-size: 2.5em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+}
+
+.button {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #2979FF;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .registerContainer {
+        height: 100%;
+    }
+
+    .registerWrapper {
+        width: 90%;
+    }
+
+
+}
+
+button:focus {
+    outline: 0;
+}
+
+.registerInput {
+    border: none;
+    border-radius: 0;
+    padding: 5%;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+body{
+    margin: 0;
+}
