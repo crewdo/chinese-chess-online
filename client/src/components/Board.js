@@ -24,7 +24,7 @@ export const Board = ({isHost, gameState, handleStart, roomId, boardWidth, board
     }, []);
 
     return (
-        <div className="boardContainer" style={{marginTop: pixelRate / 2 + 'px' , width: boardWidth + 'px', height: boardHeight + 'px'}}>
+        <div className="boardContainer" style={{width: boardWidth + 'px', height: boardHeight + 'px'}}>
             {isHost && gameState === 0 && <WaveButton handler={handleStart} text={`START`}></WaveButton>}
             {chessMen.map((chessMan, i) => {
                 return <div key={chessMan.id}>

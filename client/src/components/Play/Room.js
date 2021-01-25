@@ -30,6 +30,10 @@ export const Room = ({location}) => {
                 }
             });
         }
+
+        return () => {
+            // socket.emit('user_out');
+        }
     }, [location.search, name, history, rotate, id])
 
     const [chessMen, setChessMen] = useState([]);
@@ -127,11 +131,17 @@ export const Room = ({location}) => {
     const pixelRate = boardWidth / 8 + 50;
 
     return (
-        <div className="roomContainer">
+        <div>
             <div className="roomBodyContainer">
-                <Board isHost={isHost} gameState={gameState} handleStart={handleStart} roomId={id} boardWidth={boardWidth - pixelRate} boardHeight={boardHeight - pixelRate} pixelRate={(boardWidth - pixelRate) / 8} chessMen={chessMen}
-                       rotate={rotate}/>
+                <div className="boardContainer boardBorder" style={{padding: pixelRate / 3.5, width: boardWidth - pixelRate + 'px', height: boardHeight - pixelRate + 'px'}}></div>
+            </div>
+            <div className="roomContainer">
+                <div className="roomBodyContainer">
+                    <Board isHost={isHost} gameState={gameState} handleStart={handleStart} roomId={id} boardWidth={boardWidth - pixelRate} boardHeight={boardHeight - pixelRate} pixelRate={(boardWidth - pixelRate) / 8} chessMen={chessMen}
+                           rotate={rotate}/>
+                </div>
             </div>
         </div>
+
     );
 }

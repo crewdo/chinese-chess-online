@@ -39,55 +39,11 @@ class Hall {
             });
 
             socket.on('disconnecting', function () {
+                self.triggerUserOut(socket)
+            });
 
-                var rooms = socket.rooms;
-                var socketInRoom = Room.filterCurrentRoomId(rooms);
-
-                if (socketInRoom && self.checkingRoomExisting(socketInRoom)) {
-
-                    var currentRoom = self.roomList[socketInRoom];
-
-                    let currentRoomPlayerCount = currentRoom.players.length;
-
-                    let playerLeft = true;
-                    //Process Remove Player From Room
-                    currentRoom.players = currentRoom.players.filter(e => {
-                        return e.id !== socket.id;
-                    });
-
-                    if (currentRoomPlayerCount === currentRoom.players.length) {
-                        //Process Remove Visitor From Room
-                        currentRoom.visitors = currentRoom.visitors.filter(e => {
-                            return e.id !== socket.id;
-                        });
-
-                        playerLeft = false;
-                    }
-
-                    //If only one stay in Room, set his color to xRed.
-                    if (currentRoom.players.length === 1) {
-                        currentRoom.players[0].colorKeeping = BaseChessMan.RED_TYPE;
-                        currentRoom.game.gameRestart();
-                        currentRoom.game.turnOfUserId = currentRoom.players[0].id;
-
-                        self.socketGlobal.to(`${currentRoom.roomId}`).emit("chess_men_data",
-                            {chessMen: self.roomList[currentRoom.roomId].game.chessService.chessMen}
-                        );
-
-                        //To notice people in room aware of a player has just left
-                        if (playerLeft) {
-                            self.socketGlobal.to(`${currentRoom.roomId}`).emit("a_player_left");
-                        }
-
-                    } else if (currentRoom.players.length === 0) {
-                        self.socketGlobal.to(`${currentRoom.roomId}`).emit("current_room_removed"); //for visitor
-                        //this also remove game refer to room.
-                        delete self.roomList[socketInRoom];
-                    }
-
-                    self.emitListOutRooms();
-                }
-
+            socket.on('user_out', () => {
+                self.triggerUserOut(socket);
             });
 
             socket.on('user_joined', (roomId, username, callback) => {
@@ -235,6 +191,7 @@ class Hall {
                 acknowledgement()
             });
 
+
         });
     }
 
@@ -264,6 +221,59 @@ class Hall {
 
     checkingRoomExisting(roomId) {
         return typeof this.roomList[roomId] !== "undefined";
+    }
+
+    triggerUserOut(socket) {
+        let self = this;
+        var rooms = socket.rooms;
+        console.log('out');
+
+        var socketInRoom = Room.filterCurrentRoomId(rooms);
+
+        if (socketInRoom && self.checkingRoomExisting(socketInRoom)) {
+            console.log('out');
+
+
+            var currentRoom = self.roomList[socketInRoom];
+
+            let currentRoomPlayerCount = currentRoom.players.length;
+
+            let playerLeft = true;
+            //Process Remove Player From Room
+            currentRoom.players = currentRoom.players.filter(e => {
+                return e.id !== socket.id;
+            });
+
+            if (currentRoomPlayerCount === currentRoom.players.length) {
+                //Process Remove Visitor From Room
+                currentRoom.visitors = currentRoom.visitors.filter(e => {
+                    return e.id !== socket.id;
+                });
+
+                playerLeft = false;
+            }
+
+            //If only one stay in Room, set his color to xRed.
+            if (currentRoom.players.length === 1) {
+                currentRoom.players[0].colorKeeping = BaseChessMan.RED_TYPE;
+                currentRoom.game.gameRestart();
+                currentRoom.game.turnOfUserId = currentRoom.players[0].id;
+
+                self.socketGlobal.to(`${currentRoom.roomId}`).emit("chess_men_data",
+                    {chessMen: self.roomList[currentRoom.roomId].game.chessService.chessMen}
+                );
+
+                //To notice people in room aware of a player has just left
+                if (playerLeft) {
+                    self.socketGlobal.to(`${currentRoom.roomId}`).emit("a_player_left");
+                }
+
+            } else if (currentRoom.players.length === 0) {
+                self.socketGlobal.to(`${currentRoom.roomId}`).emit("current_room_removed"); //for visitor
+                //this also remove game refer to room.
+                delete self.roomList[socketInRoom];
+            }
+        }
     }
 
 }
