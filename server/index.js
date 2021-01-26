@@ -10,5 +10,5 @@ app.use(cors());
 const Hall = require('./welcome/Hall');
 let Gate = new Hall(io);
 Gate.askReceptionist();
-
-server.listen(process.env.PORT || 5000, () => console.log(`Server has started.`));
+const port = process.env.PORT || 80;
+server.listen(port, () => console.log(`Server has started. ${port}`));
